@@ -3,6 +3,7 @@ import { Container, Row, Col, Typography, Slider } from "react-bootstrap";
 import { Filter } from "./Filter";
 import { Product } from "../Product/Product";
 import './Filter.css'
+import './Home.css'
 const Products = [
   {
     ProductName: "Samsumg",
