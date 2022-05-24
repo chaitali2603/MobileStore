@@ -1,11 +1,19 @@
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
       <Card>
         <Card.Body>
-          <Card.Title>B</Card.Title>
-          
+          <Link className="ContactBtn" to={"/ContactUs"}>
+            <span>Contact Us</span>
+          </Link>
+          <div>
+            <Link className="ContactBtn" to={"/ContactUs"}>
+              <span>About Us</span>
+            </Link>
+          </div>
+          <Card.Title></Card.Title>
         </Card.Body>
       </Card>
     </>

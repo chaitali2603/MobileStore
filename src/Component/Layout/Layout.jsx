@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Home from "../Home/Home";
 import { Login } from "../Log in/Login";
 import { Cart } from "./Cart";
+import { ContactUs } from "./ContactUs/ContactUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./Layout.css";
 
