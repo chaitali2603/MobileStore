@@ -5,8 +5,7 @@ import React from "react";
 * @function Slider
 
 **/
-
-export const Slider = (props) => {
+export const Slider= (props) => {
   return (
     <>
       <label className="form-label" >

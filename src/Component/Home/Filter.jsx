@@ -1,5 +1,5 @@
 import React from "react";
-import { Slider } from "./Filter/Slider";
+import { Slider} from "./Filter/Slider";
 import { CheckBox } from "./Filter/CheckBox";
 import { InternalStorage } from "./Filter/InternalStorage";
 import { OpratingSystem } from "./Filter/OperatingSystem";

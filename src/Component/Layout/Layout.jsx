@@ -19,7 +19,7 @@ function Layout() {
           <Route path="Cart" element={<Cart />} />
           <Route path="AboutUs" element={<AboutUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
-          
+
           {/* <Route path="invoices" element={<Invoices />} /> */}
         </Routes>
         <Footer></Footer>
