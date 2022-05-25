@@ -45,6 +45,44 @@ const Products = [
     OpratingSystem: "octa-Core Processor",
     Price: "20,000 rs",
   },
+  {
+    ProductName: "one Plus",
+    RAM: "6bg",
+    DisplaySize: "15.6 inch",
+    Battery: "5000 mAh",
+    OpratingSystem: "octa-Core Processor",
+    Price: "20,000 rs",
+  },
+  {
+    ProductName: "iPhone 10",
+    RAM: "6bg",
+    DisplaySize: "15.6 inch",
+    Battery: "5000 mAh",
+    OpratingSystem: "octa-Core Processor",
+    Price: "20,000 rs",
+  },
+  {
+    ProductName: "Oppo Reno",
+    RAM: "6bg",
+    DisplaySize: "15.6 inch",
+    Battery: "5000 mAh",
+    OpratingSystem: "octa-Core Processor",
+    Price: "20,000 rs",
+  }, {
+    ProductName: "vivo v 20",
+    RAM: "6bg",
+    DisplaySize: "15.6 inch",
+    Battery: "5000 mAh",
+    OpratingSystem: "octa-Core Processor",
+    Price: "20,000 rs",
+  }, {
+    ProductName: "Readme",
+    RAM: "6bg",
+    DisplaySize: "15.6 inch",
+    Battery: "5000 mAh",
+    OpratingSystem: "octa-Core Processor",
+    Price: "20,000 rs",
+  }
 ];
 function Home() {
   return (
