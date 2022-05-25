@@ -53,7 +53,7 @@ const Products = [
     Price: "20,000 rs",
   },
   {
-    ProductName: "iPhone 10",
+    ProductName: "iPhone 11",
     RAM: "6bg",
     DisplaySize: "15.6 inch",
     Battery: "5000 mAh",
