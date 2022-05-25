@@ -4,7 +4,9 @@ import { Filter } from "./Filter";
 import { Product } from "../Product/Product";
 import './Filter.css'
 import './Home.css'
-const Products = [
+
+<
+  const Products = [
   {
     ProductName: "Samsumg",
     RAM: "6bg",
