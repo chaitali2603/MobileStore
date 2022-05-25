@@ -1,5 +1,8 @@
 import { Container, Col, Form, Row, Button } from "react-bootstrap";
 import React, { useState } from "react";
+import { SignUp } from "../Log in/SignUP";
+import { Link } from "react-router-dom";
+
 
 /**
  * @author
@@ -59,11 +62,18 @@ export const Login = (props) => {
               </Row>
               <Row>
                 <Col>
+                <Link className="SignUpBtn" to={"/SignUp"}>
+                <Button
+                    type="button"
+                    onClick={onClickLogin}
+                    variant="outline-success">
+                      Sign Up
+                  </Button>
+                  </Link>
                   <Button
                     type="button"
                     onClick={onClickLogin}
-                    variant="outline-success"
-                  >
+                    variant="outline-success">
                     Log In
                   </Button>
                 </Col>
