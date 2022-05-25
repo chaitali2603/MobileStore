@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <>
@@ -9,7 +10,7 @@ function Footer() {
             <span>Contact Us</span>
           </Link>
           <div>
-            <Link className="ContactBtn" to={"/ContactUs"}>
+            <Link className="ContactBtn" to={"/AboutUs"}>
               <span>About Us</span>
             </Link>
           </div>
