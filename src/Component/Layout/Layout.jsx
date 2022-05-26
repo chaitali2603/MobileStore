@@ -10,6 +10,7 @@ import "./Layout.css";
 import { SignUp } from "../Log in/SignUP";
 import { MyProfile } from "../Home/MyProfile";
 import { ForgotPassword } from "../Log in/ForgotPassword";
+import { SetNewPassword } from "../Log in/SetNewPassword";
 
 
 function Layout() {
@@ -28,6 +29,9 @@ function Layout() {
           <Route path="SignUp" element={<SignUp />} />
           <Route path="MyProfile" element={<MyProfile />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
+          <Route path="SetNewtPassword" element={<SetNewPassword />} />
+
+
           {/* <Route path="invoices" element={<Invoices />} /> */}
         </Routes>
         <Footer></Footer>

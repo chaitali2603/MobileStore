@@ -8,6 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { SetNewPassword } from "../Log in/SetNewPassword";
 import "./Header.css";
 
 function Header() {
@@ -36,6 +37,7 @@ function Header() {
               <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
               <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
               <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
+              <SetNewPassword></SetNewPassword>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
