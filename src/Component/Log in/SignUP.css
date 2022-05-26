@@ -1,0 +1,10 @@
+.Formating{
+    display: table;
+    min-height: 1.5rem;
+    padding-left: 1.5em;
+    margin-bottom: 1.125rem;
+    margin: 0;
+    font-family: inherit;
+    font-size: initial;
+    line-height: inherit;
+}

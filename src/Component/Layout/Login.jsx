@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { SignUp } from "../Log in/SignUP";
 import { Link } from "react-router-dom";
 
-
 /**
  * @author
  * @function Login
@@ -60,20 +59,27 @@ export const Login = (props) => {
                   </Col>
                 </Form.Group>
               </Row>
+              <Col>
+              <Link className="ForgotPassword" to={"/ForgotPassword"}>
+                <span> Forgot Password</span>
+              </Link>
+              </Col>
               <Row>
                 <Col>
-                <Link className="SignUpBtn" to={"/SignUp"}>
-                <Button
-                    type="button"
-                    onClick={onClickLogin}
-                    variant="outline-success">
+                  <Link className="LogInBtn" to={"/SignUp"}>
+                    <Button
+                      type="button"
+                      onClick={onClickLogin}
+                      variant="outline-success"
+                    >
                       Sign Up
-                  </Button>
+                    </Button>
                   </Link>
                   <Button
                     type="button"
                     onClick={onClickLogin}
-                    variant="outline-success">
+                    variant="outline-success"
+                  >
                     Log In
                   </Button>
                 </Col>

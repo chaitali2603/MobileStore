@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './Header.css';
+import "./Header.css";
 
 function Header() {
   return (
@@ -24,22 +24,19 @@ function Header() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-           
+            <Navbar.Brand href="#">
+              <Link to="/MyProfile">My Profile</Link>
+             
+            </Navbar.Brand>
 
-            {/* <Nav.Link href="#action2">About us</Nav.Link> */}
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
+            <NavDropdown title="Other" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action4">My Orders</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+              <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
+              <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
+              <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
+              <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
@@ -51,11 +48,11 @@ function Header() {
 
             <Button variant="outline-success">Search</Button>
             <Link className="LoginBtn" to={"/Login"}>
-              <Button variant="outline-success">Log in</Button>
+              <Button>Log in</Button>
             </Link>
 
             <Link className="CartBtn" to={"/Cart"}>
-              <Button variant="outline-success">Cart</Button>
+              <Button>Cart</Button>
             </Link>
           </Form>
         </Navbar.Collapse>

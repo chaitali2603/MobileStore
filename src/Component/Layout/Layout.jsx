@@ -8,6 +8,8 @@ import { AboutUs } from "./AboutUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./Layout.css";
 import { SignUp } from "../Log in/SignUP";
+import { MyProfile } from "../Home/MyProfile";
+import { ForgotPassword } from "../Log in/ForgotPassword";
 
 
 function Layout() {
@@ -24,7 +26,8 @@ function Layout() {
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="SignUp" element={<SignUp />} />
-          
+          <Route path="MyProfile" element={<MyProfile />} />
+          <Route path="ForgotPassword" element={<ForgotPassword />} />
           {/* <Route path="invoices" element={<Invoices />} /> */}
         </Routes>
         <Footer></Footer>
