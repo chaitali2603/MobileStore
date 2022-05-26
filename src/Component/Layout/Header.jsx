@@ -27,7 +27,6 @@ function Header() {
           >
             <Navbar.Brand href="#">
               <Link to="/MyProfile">My Profile</Link>
-             
             </Navbar.Brand>
 
             <NavDropdown title="Other" id="navbarScrollingDropdown">
@@ -37,7 +36,10 @@ function Header() {
               <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
               <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
               <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
-              <SetNewPassword></SetNewPassword>
+              <NavDropdown.Item href="#action9"><Link className="ContactBtn" to={"/SetNewPassword"}>
+            <p>Set New Password</p>
+          </Link></NavDropdown.Item>
+           
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
