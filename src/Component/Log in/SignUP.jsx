@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 /**
  * @author
  * @function SignUp
@@ -9,7 +10,6 @@ import { Form, Button, Container, Row, Col } from "react-bootstrap";
 export const SignUp = (props) => {
   return (
     <>
-    
       <h1>Sign UP</h1>
       <p>Fill in this form to create an account </p>
       <Container>
@@ -37,12 +37,20 @@ export const SignUp = (props) => {
               <Form.Control placeholder="Confirm Password" />
             </Form.Group>
           </Row>
-          <Form.Check type="checkbox" label=" I accept the Terms of Use & Privacy Policy" />
+          <Form.Check
+            type="checkbox"
+            label=" I accept the Terms of Use & Privacy Policy"
+          />
+          <Row>
+            <Col>
+              <Link className="ForgotPassword" to={"/LogIn"}>
+                <span> Back To Log In</span>
+              </Link>
+            </Col>
+          </Row>
           <Button align="Left" variant="primary">
             Sign UP
           </Button>
-         
-          
         </Form>
       </Container>
     </>
