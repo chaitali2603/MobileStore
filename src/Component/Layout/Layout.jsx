@@ -29,7 +29,7 @@ function Layout() {
           <Route path="SignUp" element={<SignUp />} />
           <Route path="MyProfile" element={<MyProfile />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
-          <Route path="SetNewtPassword" element={<SetNewPassword />} />
+          <Route path="SetNewPassword" element={<SetNewPassword />} />
 
 
           {/* <Route path="invoices" element={<Invoices />} /> */}

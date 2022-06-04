@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Row, Col} from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Product } from "../Product/Product";
+import { Container, Row, Col } from "react-bootstrap";
+import { Filter } from "../Home/Filter";
+
+
 /**
  * @author
  * @function Cart
@@ -10,15 +11,16 @@ import { Product } from "../Product/Product";
 export const Cart = (props) => {
   return (
     <>
-    
       <Container>
         <Row>
           <Col sm={8}>
             My Cart
             <Row>
-              <Col sm={2}> Image</Col>
+              <Col sm={2}> Image
+              </Col>
               <Col sm={6}> Middle</Col>
-              <Col sm={4}>Last</Col>
+              <Col sm={4}>Last
+               </Col>
             </Row>
           </Col>
           <Col sm={4}>
@@ -29,9 +31,6 @@ export const Cart = (props) => {
             </Row>
           </Col>
         </Row>
-        <body>
-         
-        </body>
       </Container>
     </>
   );

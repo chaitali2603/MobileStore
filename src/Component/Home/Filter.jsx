@@ -1,8 +1,9 @@
-import React from "react";
-import { Slider} from "./Filter/Slider";
+import React, { useEffect,useState } from "react";
+import { Slider } from "./Filter/Slider";
 import { CheckBox } from "./Filter/CheckBox";
 import { InternalStorage } from "./Filter/InternalStorage";
 import { OpratingSystem } from "./Filter/OperatingSystem";
+
 import {
   Form,
   FormControl,
@@ -19,6 +20,11 @@ import {
  **/
 
 export const Filter = (props) => {
+  const [filter, setFilter] = useState(props.value);
+
+  useEffect(()=>{
+    props.onChangefilter(filter)
+  },[filter])
   return (
     <>
       <Container>
@@ -35,14 +41,21 @@ export const Filter = (props) => {
             <i className="fas fa-search"></i>
           </span>
         </div>
-        <Slider FilterType="Price Range" > </Slider>
+        <Slider
+          onChangeSlider={(val) => {
+            setFilter({ ...filter, Price: val });
+          }}
+          value={filter.Price}
+          FilterType="Price Range"
+        >
+          {" "}
+        </Slider>
         <Slider FilterType="RAM"> </Slider>
-        
-          <CheckBox></CheckBox>
-         
-           <InternalStorage></InternalStorage>
-           <OpratingSystem></OpratingSystem>
-       
+
+        <CheckBox></CheckBox>
+
+        <InternalStorage></InternalStorage>
+        <OpratingSystem></OpratingSystem>
       </Container>
     </>
   );

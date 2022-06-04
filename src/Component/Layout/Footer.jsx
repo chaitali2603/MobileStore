@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <Card>
-        <Card.Body>
+      <Card className="header">
+        <Card.Body style={{padding :0}}>
           <Link className="ContactBtn" to={"/ContactUs"}>
             <span>Contact Us</span>
           </Link>
-          <div>
-            <Link className="ContactBtn" to={"/AboutUs"}>
+          
+          <Link className="ContactBtn" to={"/AboutUs"}>
               <span>About Us</span>
             </Link>
-          </div>
           <Card.Title></Card.Title>
         </Card.Body>
       </Card>

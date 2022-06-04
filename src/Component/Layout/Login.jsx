@@ -1,7 +1,8 @@
-import { Container, Col, Form, Row, Button } from "react-bootstrap";
+import { Container, Col, Form, Row, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
 import { SignUp } from "../Log in/SignUP";
 import { Link } from "react-router-dom";
+import { ReqLogin } from "../../Utill/Api";
 
 /**
  * @author
@@ -13,9 +14,21 @@ export const Login = (props) => {
     Email: "",
     Password: "",
   });
+  const [showError, setShowError] = useState(false);
 
-  const onClickLogin = () => {
+  const onSubmitLogin = (e) => {
+    e.preventDefault();
+    setShowError(false)
     console.log(LoginForm);
+    ReqLogin(LoginForm).then(
+      (data) => {
+        console.log(data);
+        window.location.href = "/";
+      },
+      (error) => {
+        setShowError(true)
+      }
+    );
   };
   const OnChangeEmail = (e) => {
     setLoginForm({ ...LoginForm, Email: e.target.value });
@@ -28,7 +41,9 @@ export const Login = (props) => {
       <Container>
         <row>
           <Col sm={4}>
-            <Form>
+            {showError?<Alert variant={"danger"}>invalid creditions</Alert>:null}
+            
+            <Form onSubmit={onSubmitLogin}>
               <Row>
                 <Form.Group className="mb-3" controlId="formPlaintextEmail">
                   <Form.Label column sm="2">
@@ -60,26 +75,18 @@ export const Login = (props) => {
                 </Form.Group>
               </Row>
               <Col>
-              <Link className="ForgotPassword" to={"/ForgotPassword"}>
-                <span> Forgot Password</span>
-              </Link>
+                <Link className="ForgotPassword" to={"/ForgotPassword"}>
+                  <span> Forgot Password</span>
+                </Link>
               </Col>
               <Row>
                 <Col>
-                  <Link className="LogInBtn" to={"/SignUp"}>
-                    <Button
-                      type="button"
-                      onClick={onClickLogin}
-                      variant="outline-success"
-                    >
+                  <Link className="LoginBtn" to={"/SignUp"}>
+                    <Button type="button" variant="outline-success">
                       Sign Up
                     </Button>
                   </Link>
-                  <Button
-                    type="button"
-                    onClick={onClickLogin}
-                    variant="outline-success"
-                  >
+                  <Button type="submit" variant="outline-success">
                     Log In
                   </Button>
                 </Col>

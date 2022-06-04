@@ -1,12 +1,30 @@
-.LoginBtn{
-    min-width: 81px;
+.LoginBtn {
+  min-width: 81px;
+  color: rgb(185, 58, 58);
+}
+.ContactBtn {
+  text-decoration: none;
+}
+.Bgcolor {
+  background-color: #d33939;
+}
 
-    
-}
-.ContactBtn{
-    text-decoration: none;
-}
-.Bkcolor{
-    background-color: #2e2020;
-}
+/* .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  .sticky + .content {
+    padding-top: 60px;
+  } */
 
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: blue !important;
+}
+.header{
+background: #e8c8eb !important
+}
+.btn{
+background-color: #0d6efd;
+}
