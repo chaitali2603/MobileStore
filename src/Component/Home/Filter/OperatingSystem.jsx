@@ -9,7 +9,6 @@ import React from "react";
 export const OpratingSystem = (props) => {
   return (
     <div>
-     <b> Oprating system </b>
       <div className="form-check">
         <input
           className="form-check-input"

@@ -12,7 +12,9 @@ import {
   input,
   Container,
   mobiscroll,
+  Accordion
 } from "react-bootstrap";
+import { Ram } from "./Filter/Ram";
 
 /**
  * @author
@@ -41,6 +43,7 @@ export const Filter = (props) => {
             <i className="fas fa-search"></i>
           </span>
         </div>
+        
         <Slider
           onChangeSlider={(val) => {
             setFilter({ ...filter, Price: val });
@@ -50,12 +53,39 @@ export const Filter = (props) => {
         >
           {" "}
         </Slider>
-        <Slider FilterType="RAM"> </Slider>
+        
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>RAM</Accordion.Header>
+            <Accordion.Body>           
+        <Ram></Ram>
+        </Accordion.Body>
+        </Accordion.Item>
 
+      
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Brand</Accordion.Header>
+            <Accordion.Body>   
         <CheckBox></CheckBox>
+        </Accordion.Body>
+        </Accordion.Item>
+    
 
+        <Accordion.Item eventKey="2">
+            <Accordion.Header>Internal Storage</Accordion.Header>
+            <Accordion.Body>   
         <InternalStorage></InternalStorage>
+        </Accordion.Body>
+        </Accordion.Item>
+    
+
+        <Accordion.Item eventKey="3">
+            <Accordion.Header>Operating System</Accordion.Header>
+            <Accordion.Body> 
         <OpratingSystem></OpratingSystem>
+        </Accordion.Body>
+        </Accordion.Item>
+        </Accordion>
       </Container>
     </>
   );

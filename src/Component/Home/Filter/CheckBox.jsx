@@ -9,7 +9,6 @@ import React from "react";
 export const CheckBox = (props) => {
   return (
     <div>
-     <b> Brand </b>
       <div className="form-check">
         <input
           className="form-check-input"
