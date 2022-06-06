@@ -10,13 +10,12 @@ import {
 import { Link } from "react-router-dom";
 import { SetNewPassword } from "../Log in/SetNewPassword";
 import "./Header.css";
-
-
+import { useState, props, useEffect } from "react";
 
 function Header() {
   return (
     <>
-      <Navbar sticky="top"   className="header" expand="lg">
+      <Navbar sticky="top" className="header" expand="lg">
         <Container fluid>
           <Navbar.Brand href="#">
             <Link to="/">Mobile Cart</Link>
@@ -32,7 +31,7 @@ function Header() {
                 <Link to="/MyProfile">My Profile</Link>
               </Navbar.Brand>
 
-              <NavDropdown   title="Other" id="navbarScrollingDropdown">
+              <NavDropdown title="Other" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action4">My Orders</NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
@@ -48,8 +47,7 @@ function Header() {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            
-            
+
             <Form className="d-flex">
               <FormControl
                 type="search"

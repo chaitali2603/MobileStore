@@ -103,19 +103,8 @@ export const Filter = (props) => {
                 }}
               ></CheckBox>
             </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>Battery</Accordion.Header>
-            <Accordion.Body>
-              <CheckBox
-                items={filter.Ram}
-                onChangeCheckBox={(items) => {
-                  setFilter({ ...filter, RAM: items });
-                }}
-              ></CheckBox>
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
+            </Accordion.Item>
+         </Accordion>
       </Container>
     </>
   );
