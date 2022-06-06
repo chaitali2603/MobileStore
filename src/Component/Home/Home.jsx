@@ -94,11 +94,38 @@ function Home() {
   const [filter, setFilter] = useState({
     pageno: 1,
     recordperpage: 12,
-    Price: 5000,
-    Ram: null,
-    Brand: null,
-    internalStorage: null,
-    OpratingSystem: null,
+    Price: 7000,
+    Ram: [
+      { name: "2 GB", value: false },
+      { name: "4 GB", value: false },
+      { name: "6 GB", value: false },
+      { name: "8 GB", value: false },
+      { name: "12 GB", value: false },
+    ],
+    Brand: [
+      { name: "Samsung", value: false },
+      { name: "iphone", value: false },
+      { name: "mi", value: false },
+      { name: "Vivo", value: false },
+      { name: "oppo", value: false },
+      { name: "Oneplus", value: false },
+      { name: "Poco", value: false },
+    ],
+    internalStorage: [
+      { name: "8-15.9 GB", value: false },
+      { name: "16-31.9 GB", value: false },
+      { name: "32-63.9 GB", value: false },
+      { name: "64-127.9 GB", value: false },
+      { name: "128 GB and above", value: false },
+    ],
+    OpratingSystem: [
+      { name: "ios", value: false },
+      { name: "Android", value: false },
+      { name: "Linus", value: false },
+      { name: "Tizen", value: false },
+      { name: "Kaios", value: false },
+      { name: "Symbian", value: false },
+    ],
     search: "",
   });
 

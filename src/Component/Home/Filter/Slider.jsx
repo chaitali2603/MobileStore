@@ -13,7 +13,7 @@ export const Slider = (props) => {
         <label className="form-label">{props.FilterType}</label>
         <div className="range">
           <input
-          min={0} max={150000}
+          min={7000} max={150000}
             onChange={(e) => {
               props.onChangeSlider(e.target.value)
             }}

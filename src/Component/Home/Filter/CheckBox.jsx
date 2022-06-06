@@ -1,4 +1,6 @@
 import React from "react";
+import { useState,useEffect } from "react";
+
 
 /**
 * @author
@@ -7,72 +9,40 @@ import React from "react";
 **/
 
 export const CheckBox = (props) => {
+  const [items, setitems] = useState(props.items);
+
+  useEffect(() => {
+    props.onChangeCheckBox(items);
+  }, [items]);
+
   return (
     <div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">Samsung</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">Oppo</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckChecked"
-        />
-        <label className="form-check-label">Vivo</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">iphone</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">Realme</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">POCO</label>
-      </div>
-      <div className="form-check">
-        <input
-          className="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        />
-        <label className="form-check-label">Mi</label>
-      </div>
-      
+      {items.map((item) => {
+        return (
+          <div className="form-check">
+            <input
+              onChange={(e) => {
+                console.log(e.target.value);
+                console.log(e.target.checked);
+                setitems(
+                  items.map((el) =>
+                    el.name == e.target.value
+                      ? { ...el, value: e.target.checked }
+                      : el
+                  )
+                );
+              }}
+              className="form-check-input"
+              type="checkbox"
+              checked={item.value}
+              value={item.name}
+              id="flexCheckDefault"
+            />
+
+            <label className="form-check-label">{item.name}</label>
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -1,8 +1,6 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Slider } from "./Filter/Slider";
 import { CheckBox } from "./Filter/CheckBox";
-import { InternalStorage } from "./Filter/InternalStorage";
-import { OpratingSystem } from "./Filter/OperatingSystem";
 
 import {
   Form,
@@ -12,9 +10,9 @@ import {
   input,
   Container,
   mobiscroll,
-  Accordion
+  Accordion,
+  Fade,
 } from "react-bootstrap";
-import { Ram } from "./Filter/Ram";
 
 /**
  * @author
@@ -24,9 +22,10 @@ import { Ram } from "./Filter/Ram";
 export const Filter = (props) => {
   const [filter, setFilter] = useState(props.value);
 
-  useEffect(()=>{
-    props.onChangefilter(filter)
-  },[filter])
+  useEffect(() => {
+    props.onChangefilter(filter);
+  }, [filter]);
+
   return (
     <>
       <Container>
@@ -37,13 +36,16 @@ export const Filter = (props) => {
             className="form-control rounded"
             placeholder="Search"
             aria-label="Search"
+            onChange={(e) => {
+              setFilter({ ...filter, search: e.target.value });
+            }}
             aria-describedby="search-addon"
           />
           <span className="input-group-text border-0" id="search-addon">
             <i className="fas fa-search"></i>
           </span>
         </div>
-        
+
         <Slider
           onChangeSlider={(val) => {
             setFilter({ ...filter, Price: val });
@@ -53,38 +55,66 @@ export const Filter = (props) => {
         >
           {" "}
         </Slider>
-        
+
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>RAM</Accordion.Header>
-            <Accordion.Body>           
-        <Ram></Ram>
-        </Accordion.Body>
-        </Accordion.Item>
+            <Accordion.Body>
+              <CheckBox
+                items={filter.Ram}
+                onChangeCheckBox={(items) => {
+                  setFilter({ ...filter, RAM: items });
+                }}
+              ></CheckBox>
+            </Accordion.Body>
+          </Accordion.Item>
 
-      
           <Accordion.Item eventKey="1">
             <Accordion.Header>Brand</Accordion.Header>
-            <Accordion.Body>   
-        <CheckBox></CheckBox>
-        </Accordion.Body>
-        </Accordion.Item>
-    
+            <Accordion.Body>
+              <CheckBox
+                items={filter.Brand}
+                onChangeCheckBox={(items) => {
+                  setFilter({ ...filter, Brand: items });
+                }}
+              ></CheckBox>
+            </Accordion.Body>
+          </Accordion.Item>
 
-        <Accordion.Item eventKey="2">
+          <Accordion.Item eventKey="2">
             <Accordion.Header>Internal Storage</Accordion.Header>
-            <Accordion.Body>   
-        <InternalStorage></InternalStorage>
-        </Accordion.Body>
-        </Accordion.Item>
-    
+            <Accordion.Body>
+              <CheckBox
+                items={filter.internalStorage}
+                onChangeCheckBox={(items) => {
+                  setFilter({ ...filter, internalStorage: items });
+                }}
+              ></CheckBox>
+            </Accordion.Body>
+          </Accordion.Item>
 
-        <Accordion.Item eventKey="3">
+          <Accordion.Item eventKey="3">
             <Accordion.Header>Operating System</Accordion.Header>
-            <Accordion.Body> 
-        <OpratingSystem></OpratingSystem>
-        </Accordion.Body>
-        </Accordion.Item>
+            <Accordion.Body>
+              <CheckBox
+                items={filter.OpratingSystem}
+                onChangeCheckBox={(items) => {
+                  setFilter({ ...filter, opratingSystem: items });
+                }}
+              ></CheckBox>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Battery</Accordion.Header>
+            <Accordion.Body>
+              <CheckBox
+                items={filter.Ram}
+                onChangeCheckBox={(items) => {
+                  setFilter({ ...filter, RAM: items });
+                }}
+              ></CheckBox>
+            </Accordion.Body>
+          </Accordion.Item>
         </Accordion>
       </Container>
     </>
