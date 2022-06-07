@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 /**
@@ -7,6 +7,7 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
  **/
 
 export const Product = (props) => {
+ 
   return (
     <Card className="Boxes">
       <Card.Img
@@ -24,7 +25,9 @@ export const Product = (props) => {
           <div>{props.product.Price}</div>
         </Card.Text>
         <>
-          <Button variant="primary" size="md" active>
+          <Button onClick={()=>{
+            props.onAddCart(props.product)
+          }} variant="primary" size="md" active>
             Add to Cart
           </Button>
         </>

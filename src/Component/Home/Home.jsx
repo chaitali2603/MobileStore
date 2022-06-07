@@ -5,7 +5,6 @@ import "./Filter.css";
 import React, { useState, useEffect } from "react";
 import { SearchAllProducts } from "../../Utill/Api";
 
-
 import "./Home.css";
 const Products = [
   {
@@ -94,7 +93,7 @@ function Home() {
   const [filter, setFilter] = useState({
     pageno: 1,
     recordperpage: 12,
-    Price: 7000,
+    Price: 150000,
     Ram: [
       { name: "2 GB", value: false },
       { name: "4 GB", value: false },
@@ -130,6 +129,16 @@ function Home() {
   });
 
   const [Products, setProducts] = useState([]);
+  const [CartProduct, setCartProduct] = useState([]);
+
+  useEffect(() => {
+    var _CartProduct = localStorage.getItem("CartProduct");
+    if (!_CartProduct) {
+      setCartProduct([]);
+    } else {
+      setCartProduct(JSON.parse(_CartProduct));
+    }
+  }, []);
 
   useEffect(() => {
     getProductdata();
@@ -141,6 +150,14 @@ function Home() {
       setProducts(data);
     });
   };
+
+  const Onaddcart = (_product) => {
+    setCartProduct([...CartProduct, _product]);
+  };
+
+  useEffect(()=>{
+    localStorage.setItem('CartProduct',JSON.stringify(CartProduct))
+  },[CartProduct])
 
   return (
     <>
@@ -159,7 +176,7 @@ function Home() {
             {Products.map((Product1) => {
               return (
                 <Col sm={3}>
-                  <Product product={Product1}></Product>
+                  <Product onAddCart={Onaddcart} product={Product1}></Product>
                 </Col>
               );
             })}

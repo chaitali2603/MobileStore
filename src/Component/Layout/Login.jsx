@@ -41,7 +41,7 @@ export const Login = (props) => {
       <Container>
         <row>
           <Col sm={4}>
-            {showError?<Alert variant={"danger"}>invalid creditions</Alert>:null}
+            {showError?<Alert variant={"danger"}>Somthing went Wrong</Alert>:null}
             
             <Form onSubmit={onSubmitLogin}>
               <Row>
