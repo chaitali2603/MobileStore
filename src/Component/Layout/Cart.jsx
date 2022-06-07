@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Filter } from "../Home/Filter";
-
+import { useCart } from "react-use-cart";
 
 /**
  * @author
@@ -9,9 +8,30 @@ import { Filter } from "../Home/Filter";
  **/
 
 export const Cart = (props) => {
+  const{
+      isEmpty,
+      totalUniqueItems,
+      items,
+      totalItems,
+      cartTotal,
+      updateItemQuantity,
+      removeItem,
+      emptyCart,
+  }=useCart();
+
+  if(isEmpty) return <h5 className="text-center py-5"> Cart is Empty </h5>
   return (
-    <>
-      <Container>
+    <>        
+        <div className="container-fluid py-5">       
+          <div className="row">
+            <h4 className="text-center">My Cart</h4>
+            <div className="col-12">
+              <p className="position-relative fw-bolder text-title fs-5">Cart <span className="position-absolute translate-middle rounded-pill badge bg-danger mx-2">{totalUniqueItems}</span></p>
+              <p>Total Items ({totalItems}) </p>
+            </div>
+          </div>
+        </div>
+        
         <Row>
           <Col sm={8}>
             My Cart
@@ -31,7 +51,6 @@ export const Cart = (props) => {
             </Row>
           </Col>
         </Row>
-      </Container>
     </>
   );
 };

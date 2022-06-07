@@ -1,3 +1,4 @@
+
 import {
   Navbar,
   Container,
@@ -8,67 +9,59 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { SetNewPassword } from "../Log in/SetNewPassword";
 import "./Header.css";
-import { useState, props, useEffect } from "react";
 
 function Header() {
   return (
-    <>
-      <Navbar sticky="top" className="header" expand="lg">
-        <Container fluid>
-          <Navbar.Brand href="#">
-            <Link to="/">Mobile Cart</Link>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Navbar.Brand href="#">
-                <Link to="/MyProfile">My Profile</Link>
-              </Navbar.Brand>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#">
+          <Link to="/">Mobile Cart</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <Navbar.Brand href="#">
+              <Link to="/MyProfile">My Profile</Link>
+            </Navbar.Brand>
 
-              <NavDropdown title="Other" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action4">My Orders</NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
-                <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
-                <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
-                <NavDropdown.Item href="#action7">
-                  Notifications
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
-                <NavDropdown.Item href="#action9">
-                  <Link className="ContactBtn" to={"/SetNewPassword"}>
-                    <p>Set New Password</p>
-                  </Link>
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
+            <NavDropdown title="Other" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action4">My Orders</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+              <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
+              <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
+              <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
+              <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
+              <NavDropdown.Item href="#action9"><Link className="ContactBtn" to={"/SetNewPassword"}>
+            <p>Set New Password</p>
+          </Link></NavDropdown.Item>
+           
+            </NavDropdown>
+          </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
 
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
+            <Button variant="outline-success">Search</Button>
+            <Link className="LoginBtn" to={"/Login"}>
+              <Button>Log in</Button>
+            </Link>
 
-              <Button variant="outline-success">Search</Button>
-              <Link className="LoginBtn" to={"/Login"}>
-                <Button>Log in</Button>
-              </Link>
-
-              <Link className="CartBtn" to={"/Cart"}>
-                <Button>Cart</Button>
-              </Link>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </>
+            <Link className="CartBtn" to={"/Cart"}>
+              <Button>Cart</Button>
+            </Link>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 export default Header;
