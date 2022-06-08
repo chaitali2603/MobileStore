@@ -23,34 +23,41 @@ export const Cart = (props) => {
   return (
     <>        
         <div className="container-fluid py-5">       
-          <div className="row">
+          <div className="row justify-content-center">
             <h4 className="text-center">My Cart</h4>
-            <div className="col-12">
-              <p className="position-relative fw-bolder text-title fs-5">Cart <span className="position-absolute translate-middle rounded-pill badge bg-danger mx-2">{totalUniqueItems}</span></p>
-              <p>Total Items ({totalItems}) </p>
+            <div className="col-sm-12 col-lg-8 col-xl-8 py-4">
+              <div className="d-flex justify-content-center py-3">
+              <p className="position-relative fw-bolder text-title fs-5">Cart <span className="position-absolute translate-middle rounded-pill badge bg-danger mx-1">{totalUniqueItems}</span></p>
+              <p className="fw-bolder text-title fs-5">Total Items <span className="position-absolute translate-middle rounded-pill badge bg-success mx-1">{totalItems}</span></p>
+              </div>
+              <div>
+                <table className="table table-light table-hover m-0">
+                  <tbody>
+                    {items.map((item, index)=>{
+                      return(
+                        <tr key={index} className="align-middle">
+                          <td><img src={item.img} className="img-cart" alt={item.ProductName} /></td>
+                          <td>{item.ProductName}</td>
+                          <td>{item.price}</td>
+                          <td>Quantity: {item.quantity} </td>
+                          <td> 
+                            <button onClick={()=>updateItemQuantity(item.id, item.quantity - 1)} className="btn btn-outline-dark mx-1">-</button>
+                            <button onClick={()=>updateItemQuantity(item.id, item.quantity + 1)} className="btn btn-outline-dark mx-1">+</button>
+                            <button onClick={()=>removeItem(item.id)} className="btn btn-outline-danger mx-5">Remove Item</button>
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+                <div className="d-flex justify-content-between py-3">
+                  <button onClick={()=>emptyCart()}className="btn btn-outline-danger">Clear All</button>
+                  <h3>Total Price: Rs.{cartTotal}</h3>
+                </div>
+              </div>            
             </div>
           </div>
-        </div>
-        
-        <Row>
-          <Col sm={8}>
-            My Cart
-            <Row>
-              <Col sm={2}> Image
-              </Col>
-              <Col sm={6}> Middle</Col>
-              <Col sm={4}>Last
-               </Col>
-            </Row>
-          </Col>
-          <Col sm={4}>
-            Price Details
-            <Row>
-              <Col sm={9}> A</Col>
-              <Col sm={3}> B</Col>
-            </Row>
-          </Col>
-        </Row>
     </>
   );
 };
