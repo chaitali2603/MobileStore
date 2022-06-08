@@ -55,9 +55,9 @@ function Header() {
               <Button>Log in</Button>
             </Link>
 
-            <Link className="CartBtn" to={"/Cart"}>
+            {/* <Link className="CartBtn" to={"/Cart"}>
               <Button>Cart</Button>
-            </Link>
+            </Link> */}
           </Form>
         </Navbar.Collapse>
       </Container>

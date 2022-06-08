@@ -7,6 +7,9 @@ import React from 'react'
 
 export const MyProfile = (props) => {
   return(
+    <>
     <div> This is my profile</div>
+
+    </>
    )
   }
