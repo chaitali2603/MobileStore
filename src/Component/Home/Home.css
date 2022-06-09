@@ -1,6 +1,5 @@
-.HomeCss {
-  background-color: #c44ab4;
-}
+
+
 .Boxes {
     box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
      rgba(240, 46, 170, 0.3) 0px 10px, 
@@ -13,4 +12,7 @@
 .ProductContainer{
     height: 600px;
     overflow: auto;
+}
+.homeclr{
+  background-color: rgb(223, 189, 218) !important;
 }

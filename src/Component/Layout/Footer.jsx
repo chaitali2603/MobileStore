@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <>
-      <Card className="header">
+      <Card className="header1">
         <Card.Body style={{padding :0}}>
           <Link className="ContactBtn" to={"/ContactUs"}>
             <span>Contact Us</span>

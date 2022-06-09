@@ -161,7 +161,7 @@ function Home() {
 
   return (
     <>
-      <Row>
+      <Row className="homeclr">
         <Col className="FilterComtainer" sm={2}>
           <Filter
             value={filter}

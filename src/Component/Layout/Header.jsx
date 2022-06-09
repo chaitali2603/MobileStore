@@ -13,7 +13,7 @@ import "./Header.css";
 
 function Header() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar className="header1" bg="light" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">
           <Link to="/">Mobile Cart</Link>
@@ -55,9 +55,9 @@ function Header() {
               <Button>Log in</Button>
             </Link>
 
-            {/* <Link className="CartBtn" to={"/Cart"}>
+            <Link className="CartBtn" to={"/Cart"}>
               <Button>Cart</Button>
-            </Link> */}
+            </Link>
           </Form>
         </Navbar.Collapse>
       </Container>

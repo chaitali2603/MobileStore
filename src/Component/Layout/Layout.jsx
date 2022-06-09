@@ -22,7 +22,7 @@ function Layout() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Login" element={<Login />} />
-          {/* <Route path="Cart" element={<Cart />} /> */}
+          <Route path="Cart" element={<Cart />} />
           <Route path="AboutUs" element={<AboutUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
