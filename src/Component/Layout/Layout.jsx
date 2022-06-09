@@ -6,7 +6,6 @@ import { Cart } from "./Cart";
 import { ContactUs } from "./ContactUs/ContactUs";
 import { AboutUs } from "./AboutUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./Layout.css";
 import { SignUp } from "../Log in/SignUP";
 import { MyProfile } from "../Home/MyProfile";
 import { ForgotPassword } from "../Log in/ForgotPassword";

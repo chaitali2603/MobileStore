@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Accordion } from "react-bootstrap";
+import { Row, Col, Accordion, Container, ListGroup } from "react-bootstrap";
 
 /**
  * @author
@@ -9,41 +9,23 @@ import { Row, Col, Accordion } from "react-bootstrap";
 export const MyProfile = (props) => {
   return (
     <>
-
-<Container>
-  <Row>
-    <Col sm={4}></Col>
-    <Col sm={8}> <Accordion>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Accordion Item #2</Accordion.Header>
-              <Accordion.Body>My Order</Accordion.Body>
-            </Accordion.Item>
-          </Accordion></Col>
-  </Row>
- 
-</Container>
-      {/* <Row>
-        <Col sm={2}></Col>
-        <Col></Col>
-        <Col>
-          <Accordion>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Accordion Item #2</Accordion.Header>
-              <Accordion.Body>My Order</Accordion.Body>
-            </Accordion.Item>
-          </Accordion>{" "}
-        </Col>
-        <Col sm={10}>
-          <Col sm={3}>
+      <Container>
+        <Row>
+          <Col sm={2}>
+            <Row>Hello</Row>{" "}
             <Accordion>
-              <Accordion.Item eventKey="1">
-                <Accordion.Header>Accordion Item #2</Accordion.Header>
-                <Accordion.Body>My Order</Accordion.Body>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>my Orders</Accordion.Header>
+                <Accordion.Body>ACCOUNT SETTINGS</Accordion.Body>
+                <Accordion.Body>Profile information</Accordion.Body>
+                <Accordion.Body>manage address</Accordion.Body>
               </Accordion.Item>
-            </Accordion>
+            </Accordion>{" "}
           </Col>
-        </Col>
-      </Row> */}
+
+          <Col sm={10}></Col>
+        </Row>
+      </Container>
     </>
   );
 };

@@ -7,7 +7,6 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
  **/
 
 export const Product = (props) => {
- 
   return (
     <Card className="Boxes">
       <Card.Img
@@ -15,7 +14,7 @@ export const Product = (props) => {
         src="https://picsum.photos/200/300?grayscale"
         height={200}
       />
-      <Card.Body>
+      <Card.Body className="cardclr">
         <Card.Title>{props.product.Name}</Card.Title>
         <Card.Text>
           <div>RAM - {props.product.RAM}</div>
@@ -25,12 +24,17 @@ export const Product = (props) => {
           <div>{props.product.Price}</div>
         </Card.Text>
         <>
-        <div className="btn btn-sm btn-outline-success">
-          <Button onClick={()=>{
-            props.onAddCart(props.product)
-          }} variant="primary" size="md" active>
-            Add to Cart
-          </Button>
+          <div className="btn btn-sm btn-outline-success">
+            <Button
+              onClick={() => {
+                props.onAddCart(props.product);
+              }}
+              variant="primary"
+              size="md"
+              active
+            >
+              Add to Cart
+            </Button>
           </div>
         </>
       </Card.Body>

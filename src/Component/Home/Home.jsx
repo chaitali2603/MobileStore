@@ -1,4 +1,5 @@
 import { Container, Row, Col, Typography } from "react-bootstrap";
+import "./Home.css";
 import { Filter } from "./Filter";
 import { Product } from "../Product/Product";
 import "./Filter.css";
@@ -155,9 +156,9 @@ function Home() {
     setCartProduct([...CartProduct, _product]);
   };
 
-  useEffect(()=>{
-    localStorage.setItem('CartProduct',JSON.stringify(CartProduct))
-  },[CartProduct])
+  useEffect(() => {
+    localStorage.setItem("CartProduct", JSON.stringify(CartProduct));
+  }, [CartProduct]);
 
   return (
     <>

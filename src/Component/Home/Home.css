@@ -1,11 +1,12 @@
 
 
 .Boxes {
-    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px,
-     rgba(240, 46, 170, 0.3) 0px 10px, 
-     rgba(240, 46, 170, 0.2) 0px 15px, 
-     rgba(240, 46, 170, 0.1) 0px 20px, 
-     rgba(240, 46, 170, 0.05) 0px 25px;
+    box-shadow: rgba(17, 15, 16, 0.4) 0px 5px,
+     rgba(52, 45, 49, 0.3) 0px 10px, 
+     rgba(91, 66, 82, 0.2) 0px 15px, 
+     rgba(104, 59, 88, 0.1) 0px 20px, 
+     rgba(201, 99, 150, 0.05) 0px 25px;
+     margin-bottom: 50px;
 }
 
 
@@ -14,5 +15,5 @@
     overflow: auto;
 }
 .homeclr{
-  background-color: rgb(223, 189, 218) !important;
+  background-color: rgb(243, 225, 240) !important;
 }
