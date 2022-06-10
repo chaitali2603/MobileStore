@@ -46,3 +46,16 @@ export async function SearchAllProducts(Filter) {
   const data = await req.json();
   return data;
 }
+export async function ReqPersonalInformation(obj){
+  
+  var raw=JSON.stringify(obj);
+  requestOptions.body=raw;
+  const req = await fetch(`${BaseUrl}/api/SignUp/SignUp`, requestOptions);
+  const data=await req.json()
+  if(!req.ok){
+    throw new Error(data)
+  }
+  
+  return data;
+}
+
