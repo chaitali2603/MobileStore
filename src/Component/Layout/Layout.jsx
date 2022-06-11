@@ -14,18 +14,31 @@ import { MyAccount } from "../Home/MyProfile/MyAccount";
 import { PersonalInformation } from "../Home/MyProfile/PersonalInformation";
 import { MyOrder } from "../Home/MyProfile/MyOrder";
 import { MyAddress } from "../Home/MyProfile/MyAddress";
+import { GetUserDetailsByToken } from "../../Utill/Api";
+import { useEffect, useState } from "react";
+import { ProductDetail } from "../Product/ProductDetail";
 
 function Layout() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const Token = localStorage.getItem("Token");
+    GetUserDetailsByToken(Token).then((data) => {
+      // console.log(data);
+      setUser(data);
+    });
+  }, []);
+
   return (
     <>
       <BrowserRouter>
-        <Header></Header>
+        <Header user={user}></Header>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Product/:id" element={<ProductDetail />} />
           <Route path="Login" element={<Login />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="AboutUs" element={<AboutUs />} />
-          <Route path="ContactUs" element={<ContactUs />} />
           <Route path="ContactUs" element={<ContactUs />} />
           <Route path="SignUp" element={<SignUp />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
@@ -35,9 +48,6 @@ function Layout() {
           <Route path="PersonalInformation" element={<PersonalInformation />} />
           <Route path="MyOrder" element={<MyOrder />} />
           <Route path="MyAddress" element={<MyAddress />} />
-
-
-         
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MyAccount } from "./MyAccount";
 import { PersonalInformation } from "./PersonalInformation";
 import "./MyProfile.css";
+import { GetAppUserById } from "../../../Utill/Api";
 
 /**
  * @author
@@ -11,6 +12,12 @@ import "./MyProfile.css";
  **/
 
 export const MyProfile = (props) => {
+  useEffect(() => {
+    const Token = localStorage.getItem("Token");
+    GetAppUserById(Token).then((data) => {
+      console.log(data);
+    });
+  }, []);
   return (
     <>
       <Container>

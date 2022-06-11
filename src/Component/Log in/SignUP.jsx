@@ -93,7 +93,7 @@ export const SignUp = (props) => {
       <p>Fill in this form to create an account </p>
       <Container>
         <Row>
-        
+        <Col></Col>
           <Col>
             {showError ? (
               <Alert variant={"danger"}>{ErroeMassage}</Alert>

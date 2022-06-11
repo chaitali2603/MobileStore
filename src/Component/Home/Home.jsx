@@ -5,90 +5,9 @@ import { Product } from "../Product/Product";
 import "./Filter.css";
 import React, { useState, useEffect } from "react";
 import { SearchAllProducts } from "../../Utill/Api";
+import { useToasts } from "react-toast-notifications";
 
 import "./Home.css";
-const Products = [
-  {
-    ProductName: "Samsumg",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "REadmi",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "iphone",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "oppo",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "vivo",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "one Plus",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "iPhone 11",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "Oppo Reno",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "vivo v 20",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "Readme",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-];
 
 function Home() {
   const [filter, setFilter] = useState({
@@ -132,8 +51,11 @@ function Home() {
   const [Products, setProducts] = useState([]);
   const [CartProduct, setCartProduct] = useState([]);
 
+  const { addToast } = useToasts();
+
   useEffect(() => {
     var _CartProduct = localStorage.getItem("CartProduct");
+    debugger;
     if (!_CartProduct) {
       setCartProduct([]);
     } else {
@@ -153,11 +75,29 @@ function Home() {
   };
 
   const Onaddcart = (_product) => {
-    setCartProduct([...CartProduct, _product]);
+    const existingProd = CartProduct.find((x) => x.Id == _product.Id);
+    if (existingProd) {
+      const updatedCart = CartProduct.map((x) => {
+        if (x.Id == _product.Id) {
+          return { ...x, Qty: x.Qty + 1 };
+        } else {
+          return x;
+        }
+      });
+      setCartProduct(updatedCart);
+    } else {
+      _product.Qty = 1;
+      setCartProduct([...CartProduct, _product]);
+    }
+    addToast('Succesfully Added to the cart', {
+      appearance: 'success',
+      autoDismiss: true,
+    })
   };
 
   useEffect(() => {
-    localStorage.setItem("CartProduct", JSON.stringify(CartProduct));
+    if (CartProduct && CartProduct.length > 0)
+      localStorage.setItem("CartProduct", JSON.stringify(CartProduct));
   }, [CartProduct]);
 
   return (

@@ -1,4 +1,3 @@
-
 import {
   Navbar,
   Container,
@@ -11,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-function Header() {
+function Header(props) {
   return (
     <Navbar className="header1" bg="light" expand="lg">
       <Container fluid>
@@ -35,11 +34,19 @@ function Header() {
               <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
               <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
               <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
-              <NavDropdown.Item href="#action8">Log Out</NavDropdown.Item>
-              <NavDropdown.Item href="#action9"><Link className="ContactBtn" to={"/SetNewPassword"}>
-            <p>Set New Password</p>
-          </Link></NavDropdown.Item>
-           
+              <NavDropdown.Item
+                onClick={() => {
+                  localStorage.removeItem("Token");
+                  window.location.reload();
+                }}
+              >
+                Log Out
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action9">
+                <Link className="ContactBtn" to={"/SetNewPassword"}>
+                  <p>Set New Password</p>
+                </Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
@@ -51,9 +58,13 @@ function Header() {
             />
 
             <Button variant="outline-success">Search</Button>
-            <Link className="LoginBtn" to={"/Login"}>
-              <Button>Log in</Button>
-            </Link>
+            {props.user ? (
+              `Welcom ${props.user.FirstName}`
+            ) : (
+              <Link className="LoginBtn" to={"/Login"}>
+                <Button>Log in</Button>
+              </Link>
+            )}
 
             <Link className="CartBtn" to={"/Cart"}>
               <Button>Cart</Button>

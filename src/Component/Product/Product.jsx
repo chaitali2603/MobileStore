@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 /**
  * @author
@@ -15,7 +16,7 @@ export const Product = (props) => {
         height={200}
       />
       <Card.Body className="cardclr">
-        <Card.Title>{props.product.Name}</Card.Title>
+        <Card.Title><Link to={`/Product/${props.product.Id}`}>{props.product.Name}</Link></Card.Title>
         <Card.Text>
           <div>RAM - {props.product.RAM}</div>
           <div>{props.product.DisplaySize}</div>

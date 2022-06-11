@@ -23,6 +23,7 @@ export const Login = (props) => {
     ReqLogin(LoginForm).then(
       (data) => {
         console.log(data);
+        localStorage.setItem('Token',data.Token)
         window.location.href = "/";
       },
       (error) => {

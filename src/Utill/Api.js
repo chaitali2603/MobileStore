@@ -18,20 +18,17 @@ export async function ReqLogin(obj) {
   const data = await req.json();
   return data;
 }
-export async function ReqSignUP(obj){
-  
-  var raw=JSON.stringify(obj);
-  requestOptions.body=raw;
+export async function ReqSignUP(obj) {
+  var raw = JSON.stringify(obj);
+  requestOptions.body = raw;
   const req = await fetch(`${BaseUrl}/api/SignUp/SignUp`, requestOptions);
-  const data=await req.json()
-  if(!req.ok){
-    throw new Error(data)
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
   }
-  
+
   return data;
 }
-
-
 
 export async function SearchAllProducts(Filter) {
   var raw = JSON.stringify(Filter);
@@ -46,16 +43,33 @@ export async function SearchAllProducts(Filter) {
   const data = await req.json();
   return data;
 }
-export async function ReqPersonalInformation(obj){
-  
-  var raw=JSON.stringify(obj);
-  requestOptions.body=raw;
+export async function ReqPersonalInformation(obj) {
+  var raw = JSON.stringify(obj);
+  requestOptions.body = raw;
   const req = await fetch(`${BaseUrl}/api/SignUp/SignUp`, requestOptions);
-  const data=await req.json()
-  if(!req.ok){
-    throw new Error(data)
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
   }
-  
+
   return data;
 }
 
+export async function GetUserDetailsByToken(Token) {
+  const req = await fetch(`${BaseUrl}/api/login/GetUserByToken?Token=${Token}`);
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
+export async function GetAppUserById(Token) {
+  const req = await fetch(`${BaseUrl}/api/AppUser/GetAppUserById?Token=${Token}`);
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
