@@ -128,11 +128,11 @@ export const MyAddress = (props) => {
                       });
                     }}
                   >
-                    <option>gujrat</option>
-                    <option>maharastra</option>
-                    <option>gujrat</option>
-                    <option> kashmir</option>
-                    <option>dilhi</option>
+                    <option>Gujarat</option>
+                    <option>Maharastra</option>
+                    <option>Rajasthan</option>
+                    <option> Kashmir</option>
+                    <option>Dilhi</option>
                   </Form.Select>
                 </Form.Group>
               </Col>
