@@ -1,9 +1,11 @@
 .LoginBtn {
   min-width: 81px;
   color: rgb(185, 58, 58);
+  
 }
 .ContactBtn {
   text-decoration: none;
+ 
 }
 .Bgcolor {
   background-color: #d33939;
@@ -20,12 +22,15 @@
 
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .show > .nav-link {
-  color: blue !important;
+  color: rgb(5, 5, 17) !important;
 }
 .header1 {
   /* background-color: #292429 !important */
-  background-color: #2c0628 !important;
+  background-color: rgb(215, 212, 212) !important;
 }
 .btn {
-  background-color: #0d6efd;
+  background-color: #faf8fa !important  ;
+  color: #2920d2 !important;
+  font-weight: 700 !important;
+  border: none
 }

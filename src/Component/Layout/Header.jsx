@@ -12,7 +12,7 @@ import "./Header.css";
 
 function Header(props) {
   return (
-    <Navbar className="header1" bg="light" expand="lg">
+    <Navbar className="header1" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#">
           <Link to="/">Mobile Cart</Link>
@@ -68,6 +68,7 @@ function Header(props) {
 
             <Link className="CartBtn" to={"/Cart"}>
               <Button>Cart</Button>
+              
             </Link>
           </Form>
         </Navbar.Collapse>

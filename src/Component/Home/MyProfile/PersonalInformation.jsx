@@ -39,39 +39,15 @@ export const PersonalInformation = (props) => {
       setShowError(true);
       return false;
     }
-    if (!PersonalInformationForm.Password) {
-      console.log("Password is Blank");
-      setErroeMassage("Please Enter password");
+    if (!PersonalInformationForm.FirstName) {
+      console.log("First Name is Blank");
+      setErroeMassage("Please Enter First Name");
       setShowError(true);
       return false;
     }
-    if (!PersonalInformationForm.Address) {
-      console.log("Address is blank");
-      setErroeMassage("Please Enter Address");
-      setShowError(true);
-      return false;
-    }
-    if (!PersonalInformationForm.Address2) {
-      console.log("Address 2 is blank");
-      setErroeMassage("Please Enter Address 2");
-      setShowError(true);
-      return false;
-    }
-    if (!PersonalInformationForm.City) {
-      console.log("City  is blank");
-      setErroeMassage("Please Enter City");
-      setShowError(true);
-      return false;
-    }
-    if (!PersonalInformationForm.State) {
-      console.log("State  is blank");
-      setErroeMassage("Please Enter State");
-      setShowError(true);
-      return false;
-    }
-    if (!PersonalInformationForm.Zip) {
-      console.log("Zip  is blank");
-      setErroeMassage("Please Enter Zip Code");
+    if (!PersonalInformationForm.LasttName) {
+      console.log("Last Name is blank");
+      setErroeMassage("Please Enter Last Name ");
       setShowError(true);
       return false;
     }
@@ -203,60 +179,6 @@ export const PersonalInformation = (props) => {
 
                 <Col></Col>
               </Row>
-
-              {/* <Row className="mb-3">
-                <Col></Col>
-                <Col>
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control
-                      value={PersonalInformationForm.City}
-                      onChange={(e) => {
-                        setPersonalInformationForm({
-                          ...setPersonalInformationForm,
-                          City: e.target.value,
-                        });
-                      }}
-                    />
-                  </Form.Group>
-                </Col>
-                <Col>
-                  <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>State</Form.Label>
-                    <Form.Select
-                      defaultValue="Choose..."
-                      value={PersonalInformationForm.State}
-                      onChange={(e) => {
-                        setPersonalInformationForm({
-                          ...setPersonalInformationForm,
-                          State: e.target.value,
-                        });
-                      }}
-                    >
-                      <option>gujrat</option>
-                      <option>maharastra</option>
-                      <option>gujrat</option>
-                      <option> kashmir</option>
-                      <option>dilhi</option>
-                    </Form.Select>
-                  </Form.Group>
-                </Col>
-                <Col>
-                  <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Zip</Form.Label>
-                    <Form.Control
-                      value={PersonalInformationForm.Zip}
-                      onChange={(e) => {
-                        setPersonalInformationForm({
-                          ...setPersonalInformationForm,
-                          zip: e.target.value,
-                        });
-                      }}
-                    />
-                  </Form.Group>
-                </Col>
-                <Col></Col>
-              </Row> */}
 
               <Button variant="primary" type="submit">
                 Submit

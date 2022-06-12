@@ -31,7 +31,7 @@ export const MyProfile = (props) => {
             {" "}
             <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
             <br></br>
-            <ListGroup as="ul">
+            <ListGroup className="a" as="ul">
               <ListGroup.Item className="MyProfileCss" as="li" active>
                 <Link to={"/MyAccount"}> My account</Link>
               </ListGroup.Item>

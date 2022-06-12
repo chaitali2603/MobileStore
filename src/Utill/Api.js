@@ -73,3 +73,23 @@ export async function GetAppUserById(Token) {
 
   return data;
 }
+export async function GetAddressByUserId(Token) {
+  const req = await fetch(`${BaseUrl}/api/AppUser/GetAddressByUserId?Token=${Token}`);
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
+export async function ReqMyAddress(obj) {
+  var raw = JSON.stringify(obj);
+  requestOptions.body = raw;
+  const req = await fetch(`${BaseUrl}/api/Address/Address`, requestOptions);
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
