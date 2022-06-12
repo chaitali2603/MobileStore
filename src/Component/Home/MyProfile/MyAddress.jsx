@@ -19,13 +19,11 @@ export const MyAddress = (props) => {
     Choose: "",
     Zip: "",
   });
-
   const [showError, setShowError] = useState(false);
   const [ErroeMassage, setErroeMassage] = useState("");
 
   const validateMyAddress = (e) => {
     setShowError(false);
-  };
 
   if (!MyAddressForm.Address) {
     console.log("Address  is Blank");
@@ -39,6 +37,7 @@ export const MyAddress = (props) => {
     setShowError(true);
     return false;
   }
+};
 
   const OnSubmitMyAddress = (e) => {
     e.preventDefault();
