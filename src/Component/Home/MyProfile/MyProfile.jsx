@@ -33,7 +33,6 @@ export const MyProfile = (props) => {
             <br></br>
             <ListGroup className="a" as="ul">
               <ListGroup.Item className="MyProfileCss" as="li" active>
-                <Link to={"/MyAccount"}> My account</Link>
               </ListGroup.Item>
               <ListGroup.Item as="li">
                 {" "}

@@ -14,7 +14,7 @@ function Header(props) {
   return (
     <Navbar className="header1" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">
+        <Navbar.Brand>
           <Link to="/">Mobile Cart</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -24,7 +24,7 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Navbar.Brand href="#">
+            <Navbar.Brand>
               <Link to="/MyProfile">My Profile</Link>
             </Navbar.Brand>
 
@@ -68,7 +68,6 @@ function Header(props) {
 
             <Link className="CartBtn" to={"/Cart"}>
               <Button>Cart</Button>
-              
             </Link>
           </Form>
         </Navbar.Collapse>

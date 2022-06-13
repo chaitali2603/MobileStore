@@ -21,7 +21,6 @@ export const MyOrder = (props) => {
             <br></br>
             <ListGroup as="ul">
               <ListGroup.Item className="fw-bold" as="li" active>
-                <Link to={"/MyAccount"}> My account</Link>
               </ListGroup.Item>
               <ListGroup.Item as="li">
                 {" "}

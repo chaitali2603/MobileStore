@@ -32,6 +32,7 @@ export const PersonalInformation = (props) => {
 
   const validatePersonalInformation = (e) => {
     setShowError(false);
+   
 
     if (!PersonalInformationForm.Email) {
       console.log("Email is Blank");

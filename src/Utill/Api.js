@@ -65,7 +65,9 @@ export async function GetUserDetailsByToken(Token) {
   return data;
 }
 export async function GetAppUserById(Token) {
-  const req = await fetch(`${BaseUrl}/api/AppUser/GetAppUserById?Token=${Token}`);
+  const req = await fetch(
+    `${BaseUrl}/api/AppUser/GetAppUserById?Token=${Token}`
+  );
   const data = await req.json();
   if (!req.ok) {
     throw new Error(data);
@@ -74,7 +76,9 @@ export async function GetAppUserById(Token) {
   return data;
 }
 export async function GetAddressByUserId(Token) {
-  const req = await fetch(`${BaseUrl}/api/AppUser/GetAddressByUserId?Token=${Token}`);
+  const req = await fetch(
+    `${BaseUrl}/api/Address/GetAddressByUserId?Token=${Token}`
+  );
   const data = await req.json();
   if (!req.ok) {
     throw new Error(data);
@@ -85,11 +89,26 @@ export async function GetAddressByUserId(Token) {
 export async function ReqMyAddress(obj) {
   var raw = JSON.stringify(obj);
   requestOptions.body = raw;
-  const req = await fetch(`${BaseUrl}/api/Address/Address`, requestOptions);
+  const token = localStorage.getItem("Token");
+  const req = await fetch(
+    `${BaseUrl}/api/Address/CreateAddress?token=${token}`,
+    requestOptions
+  );
   const data = await req.json();
   if (!req.ok) {
     throw new Error(data);
   }
 
   return data;
+}
+export async function DeleteAddressByAddressId(addressId) {
+  const req = await fetch(
+    `${BaseUrl}/api/Address/DeleteAddress?AddressId=${addressId}`
+  );
+  // const data = await req.json();
+  if (!req.ok) {
+    throw new Error("unauthorized");
+  }
+
+  return true;
 }
