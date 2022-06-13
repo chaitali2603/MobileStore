@@ -31,7 +31,7 @@ export const Cart = (props) => {
   const onCartQtyChange = (id, qty) => {
     const updatedCart = cartProducts.map((x) => {
       if (x.Id == id) {
-        return { ...x, Qty: qty };
+        return {  ...x, Qty: qty };
       } else {
         return x;
       }

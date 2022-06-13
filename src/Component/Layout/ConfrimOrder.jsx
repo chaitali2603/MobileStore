@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Table, Card } from "react-bootstrap";
+import { Table, Card, Row, Col, Form } from "react-bootstrap";
 import { GetAddressByUserId } from "../../Utill/Api";
 
 /**
@@ -58,17 +58,26 @@ export const ConfrimOrder = (props) => {
 
         {allAddress.map((address, index) => {
           return (
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>{address.City}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  {address.state}
-                </Card.Subtitle>
-                <Card.Text>{address.address1}</Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
-              </Card.Body>
-            </Card>
+            <Row>
+              <Col></Col>
+              <Col>
+                <Form.Check type="radio" aria-label="radio 1" {...address.address1}/>
+                
+
+                {/* <Card style={{ width: "20rem", height: "4rem" }}>
+                  <Card.Body>
+                    <Card.Title> {address.City}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">
+                      {address.state}
+                    </Card.Subtitle>
+                    <Card.Text>{address.address1}</Card.Text>
+                    {/* <Card.Link href="#">Card Link</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link> */}
+                {/* </Card.Body>
+                </Card> */}
+              </Col>
+              <Col></Col>
+            </Row>
           );
         })}
         <Table>
