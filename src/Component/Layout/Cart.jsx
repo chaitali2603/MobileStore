@@ -53,6 +53,10 @@ export const Cart = (props) => {
       .map((datum) => datum.Qty * datum.Price)
       .reduce((a, b) => a + b);
   };
+  const clearCart = () => {
+    localStorage.setItem("CartProduct", JSON.stringify([]));
+    setCartProducts([]);
+  };
 
   // if (isEmpty) return <h5 className="text-center py-5"> Cart is Empty </h5>;
   return (
@@ -122,7 +126,7 @@ export const Cart = (props) => {
             </div>
             <div className="d-flex justify-content-between py-3">
               <button
-                onClick={() => emptyCart()}
+                onClick={() => clearCart()}
                 className="btn btn-outline-danger"
               >
                 Clear All

@@ -24,7 +24,7 @@ function Layout() {
   useEffect(() => {
     const Token = localStorage.getItem("Token");
     GetUserDetailsByToken(Token).then((data) => {
-      // console.log(data);
+      console.log(data);
       setUser(data);
     });
   }, []);

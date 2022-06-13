@@ -17,7 +17,9 @@ export const MyAccount = (props) => {
         </p>
         <Row>
           <Col sm={2}>
-            <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
+            <Col className="fw-bold">
+              {props.user ? `Welcom ${props.user.FirstName}` : <></>};
+            </Col>
             <br></br>
             <ListGroup as="ul">
               <ListGroup.Item className="fw-bold" as="li" active>

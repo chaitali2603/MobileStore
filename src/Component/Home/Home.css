@@ -1,23 +1,20 @@
-
-
-.Boxes{
-  transition: box-shadow .3s;
+.Boxes {
+  transition: box-shadow 0.3s;
   width: 300px;
   height: 450px;
   margin: 50px;
-  border-radius:10px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   background: #fff;
   float: left;
-  }
-  .box:hover {
-    box-shadow: 0 0 11px rgba(33,33,33,.2); 
-  }
-.ProductContainer{
-    height: 600px;
-    overflow: auto;
 }
-.homeclr{
+.box:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+.ProductContainer {
+  height: 600px;
+  overflow: auto;
+}
+.homeclr {
   background-color: white !important;
 }
-

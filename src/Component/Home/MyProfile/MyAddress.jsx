@@ -1,5 +1,13 @@
 import React from "react";
-import { Container, Row, Col, ListGroup, Form, Button,Alert } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  Form,
+  Button,
+  Alert,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MyProfile } from "./MyProfile";
 import { useState, useEffect } from "react";
@@ -25,19 +33,25 @@ export const MyAddress = (props) => {
   const validateMyAddress = (e) => {
     setShowError(false);
 
-  if (!MyAddressForm.Address) {
-    console.log("Address  is Blank");
-    setErroeMassage("Please enter Address");
-    setShowError(true);
-    return false;
-  }
-  if (!MyAddressForm.Address2) {
-    console.log("Address 2  is Blank");
-    setErroeMassage("Please enter Address 2");
-    setShowError(true);
-    return false;
-  }
-};
+    if (!MyAddressForm.City) {
+      console.log("City  is Blank");
+      setErroeMassage("Please enter City name");
+      setShowError(true);
+      return false;
+    }
+    if (!MyAddressForm.State) {
+      console.log("State  is Blank");
+      setErroeMassage("Please enter State name");
+      setShowError(true);
+      return false;
+    }
+    if (!MyAddressForm.Zip) {
+      console.log("Zip code  is Blank");
+      setErroeMassage("Please enter Zip code");
+      setShowError(true);
+      return false;
+    }
+  };
 
   const OnSubmitMyAddress = (e) => {
     e.preventDefault();
@@ -68,96 +82,113 @@ export const MyAddress = (props) => {
 
   return (
     <>
+      <br></br>
+      <h1> Address</h1>
+      <p>
+        _____________________________________________________________________________________________________________________________________________________________________________________________
+      </p>
       <Container>
-        <br></br>
-        <h1>My Address</h1>
-        <p>
-          _____________________________________________________________________________________________________________________________________________________________________________________________
-        </p>
-        <Col sm={2}>
-          {" "}
-          <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
-          <br></br>
-          <ListGroup as="ul">
-            <ListGroup.Item className="MyProfileCss" as="li" active>
-              <Link to={"/MyAccount"}> My account</Link>
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/MyOrder"}> My Order</Link>
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/PersonalInformation"}> Personal Information</Link>
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/MyAddress"}> My Address</Link>
-            </ListGroup.Item>
-          </ListGroup>
-        </Col>
-        <Col sm={10}>
-          {showError ? <Alert variant={"danger"}>{ErroeMassage}</Alert> : null}
-          <Form onSubmit={OnSubmitMyAddress}>
-            <Row className="mb-3">
-              <Col></Col>
-              <Col>
-                <Form.Group as={Col} controlId="formGridCity">
-                  <Form.Label>City</Form.Label>
-                  <Form.Control
-                    value={MyAddressForm.City}
-                    onChange={(e) => {
-                      setMyAddressForm({
-                        ...setMyAddressForm,
-                        City: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group as={Col} controlId="formGridState">
-                  <Form.Label>State</Form.Label>
-                  <Form.Select
-                    defaultValue="Choose..."
-                    value={MyAddressForm.State}
-                    onChange={(e) => {
-                      setMyAddressForm({
-                        ...setMyAddressForm,
-                        State: e.target.value,
-                      });
-                    }}
-                  >
-                    <option>gujrat</option>
-                    <option>maharastra</option>
-                    <option>gujrat</option>
-                    <option> kashmir</option>
-                    <option>dilhi</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group as={Col} controlId="formGridZip">
-                  <Form.Label>Zip</Form.Label>
-                  <Form.Control
-                    value={MyAddressForm.Zip}
-                    onChange={(e) => {
-                      setMyAddressForm({
-                        ...setMyAddressForm,
-                        zip: e.target.value,
-                      });
-                    }}
-                  />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
-              </Col>
+        <Row>
+          <Col sm={2}>
+            <Col className="fw-bold">
+              {props.user ? `Welcom ${props.user.FirstName}` : <></>};
+            </Col>
+            <br></br>
+            <ListGroup as="ul">
+              <ListGroup.Item className="MyProfileCss" as="li" active>
+                <Link to={"/MyAccount"}> My account</Link>
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                {" "}
+                <Link to={"/MyOrder"}> My Order</Link>
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                {" "}
+                <Link to={"/PersonalInformation"}> Personal Information</Link>
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                {" "}
+                <Link to={"/MyAddress"}> My Address</Link>
+              </ListGroup.Item>
+            </ListGroup>
+          </Col>
 
-              <Col></Col>
-            </Row>
-          </Form>
-        </Col>
+          <Col sm={10}>
+            {showError ? (
+              <Alert variant={"danger"}>{ErroeMassage}</Alert>
+            ) : null}
+            <Form onSubmit={OnSubmitMyAddress}>
+              <Row className="mb-3">
+                <Col></Col>
+                <Col>
+                  <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                      value={MyAddressForm.City}
+                      onChange={(e) => {
+                        setMyAddressForm({
+                          ...MyAddressForm,
+                          City: e.target.value,
+                        });
+                      }}
+                    />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group as={Col} controlId="formGridState">
+                    <Form.Label>State</Form.Label>
+                    <Form.Select
+                      defaultValue="Choose..."
+                      value={MyAddressForm.State}
+                      onChange={(e) => {
+                        setMyAddressForm({
+                          ...MyAddressForm,
+                          State: e.target.value,
+                        });
+                      }}
+                    >
+                      <option></option>
+                      <option>maharastra</option>
+                      <option>Gujarat</option>
+                      <option> kashmir</option>
+                      <option>delhi</option>
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group as={Col} controlId="formGridZip">
+                    <Form.Label>Zip</Form.Label>
+                    <Form.Control
+                      value={MyAddressForm.Zip}
+                      onChange={(e) => {
+                        setMyAddressForm({
+                          ...MyAddressForm,
+                          Zip: e.target.value,
+                        });
+                      }}
+                    />
+                  </Form.Group>
+                  <Row className="mb-3">
+                    <Col></Col>
+                    <Col></Col>
+                  </Row>
+                </Col>
+                <Col></Col>
+              </Row>
+              <Row>
+                <Col></Col>
+                <Col></Col>
+                <Col>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Col>
+                <Col></Col>
+                <Col></Col>
+              </Row>
+            </Form>
+          </Col>
+        </Row>
       </Container>
     </>
   );

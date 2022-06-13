@@ -4,6 +4,7 @@ import { Product } from "../Product/Product";
 import "./Filter.css";
 import React, { useState, useEffect } from "react";
 import { SearchAllProducts } from "../../Utill/Api";
+import { useToasts } from "react-toast-notifications";
 
 import "./Home.css";
 const Products = [
@@ -130,6 +131,7 @@ function Home() {
 
   const [Products, setProducts] = useState([]);
   const [CartProduct, setCartProduct] = useState([]);
+  const { addToast } = useToasts();
 
   useEffect(() => {
     var _CartProduct = localStorage.getItem("CartProduct");
@@ -152,12 +154,29 @@ function Home() {
   };
 
   const Onaddcart = (_product) => {
-    setCartProduct([...CartProduct, _product]);
+    const _cartPRODUCT = CartProduct.find((x) => _product.Id == x.Id);
+    if (_cartPRODUCT) {
+      const updatedcart = CartProduct.map((x) => {
+        if (x.Id == _product.Id) {
+          return { ...x, Qty: x.Qty + 1 };
+        } else {
+          return x;
+        }
+      });
+      setCartProduct(updatedcart);
+    } else {
+      _product.Qty = 1;
+      setCartProduct([...CartProduct, _product]);
+    }
+    addToast("Iteam Added", {
+      appearance: "success",
+      autoDismiss: true,
+    });
   };
 
-  useEffect(()=>{
-    localStorage.setItem('CartProduct',JSON.stringify(CartProduct))
-  },[CartProduct])
+  useEffect(() => {
+    localStorage.setItem("CartProduct", JSON.stringify(CartProduct));
+  }, [CartProduct]);
 
   return (
     <>

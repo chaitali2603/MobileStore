@@ -95,9 +95,11 @@ export const PersonalInformation = (props) => {
             <br></br>
 
             <ListGroup as="ul">
-              <ListGroup.Item className="fw-bold" as="li" active>
-                <Link to={"/MyAccount"}> My account</Link>
-              </ListGroup.Item>
+              <ListGroup.Item
+                className="fw-bold"
+                as="li"
+                active
+              ></ListGroup.Item>
               <ListGroup.Item as="li">
                 {" "}
                 <Link to={"/MyOrder"}> My Order</Link>
@@ -129,7 +131,7 @@ export const PersonalInformation = (props) => {
                       value={PersonalInformationForm.Email}
                       onChange={(e) => {
                         setPersonalInformationForm({
-                          ...setPersonalInformationForm,
+                          ...PersonalInformationForm,
                           Email: e.target.value,
                         });
                       }}
@@ -149,7 +151,7 @@ export const PersonalInformation = (props) => {
                       value={PersonalInformationForm.FirstName}
                       onChange={(e) => {
                         setPersonalInformationForm({
-                          ...setPersonalInformationForm,
+                          ...PersonalInformationForm,
                           FirstName: e.target.value,
                         });
                       }}
@@ -165,7 +167,7 @@ export const PersonalInformation = (props) => {
                       value={PersonalInformationForm.LasttName}
                       onChange={(e) => {
                         setPersonalInformationForm({
-                          ...setPersonalInformationForm,
+                          ...PersonalInformationForm,
                           LasttName: e.target.value,
                         });
                       }}
