@@ -112,3 +112,15 @@ export async function DeleteAddressByAddressId(addressId) {
 
   return true;
 }
+
+export async function GetOrderByUserId(Token) {
+  const req = await fetch(
+    `${BaseUrl}/api/Address/GetOrderByUserId?Token=${Token}`
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}

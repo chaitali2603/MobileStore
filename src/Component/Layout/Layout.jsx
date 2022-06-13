@@ -17,6 +17,7 @@ import { MyAddress } from "../Home/MyProfile/MyAddress";
 import { GetUserDetailsByToken } from "../../Utill/Api";
 import { useEffect, useState } from "react";
 import { ProductDetail } from "../Product/ProductDetail";
+import { ConfrimOrder } from "./ConfrimOrder";
 
 function Layout() {
   const [user, setUser] = useState(null);
@@ -48,6 +49,7 @@ function Layout() {
           <Route path="PersonalInformation" element={<PersonalInformation />} />
           <Route path="MyOrder" element={<MyOrder />} />
           <Route path="MyAddress" element={<MyAddress />} />
+          <Route path="ConfrimOrder" element={<ConfrimOrder />} />
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

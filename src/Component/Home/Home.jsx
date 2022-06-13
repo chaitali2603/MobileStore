@@ -192,9 +192,9 @@ function Home() {
 
         <Col sm={10} className="ProductContainer">
           <Row>
-            {Products.map((Product1) => {
+            {Products.map((Product1, i) => {
               return (
-                <Col sm={3}>
+                <Col key={i} sm={3}>
                   <Product onAddCart={Onaddcart} product={Product1}></Product>
                 </Col>
               );

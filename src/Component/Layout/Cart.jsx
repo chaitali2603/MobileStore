@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useCart } from "react-use-cart";
+import { Link } from "react-router-dom";
 
 /**
  * @author
@@ -66,15 +67,15 @@ export const Cart = (props) => {
           <h4 className="text-center">My Cart</h4>
           <div className="col-sm-12 col-lg-8 col-xl-8 py-4">
             <div className="d-flex justify-content-center py-3">
-              <p className="position-relative fw-bolder text-title fs-5">
+              <div className="position-relative fw-bolder text-title fs-5">
                 Cart{" "}
-              </p>
-              <p className="fw-bolder text-title fs-5">
+              </div>
+              <div className="fw-bolder text-title fs-5">
                 Total Items{" "}
                 <span className="position-absolute translate-middle rounded-pill badge bg-success mx-1">
                   {cartProducts.length}
                 </span>
-              </p>
+              </div>
             </div>
             <div>
               <table className="table table-light table-hover m-0">
@@ -132,6 +133,9 @@ export const Cart = (props) => {
                 Clear All
               </button>
               <h3>Total Price: Rs.{getTotalPrice()}</h3>
+              <Link to={"/ConfrimOrder"}>
+                <Button> Proceed to Pay</Button>
+              </Link>
             </div>
           </div>
         </div>
