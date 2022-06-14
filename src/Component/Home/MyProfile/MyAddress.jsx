@@ -23,8 +23,7 @@ import { DeleteAddressByAddressId } from "../../../Utill/Api";
 
 export const MyAddress = (props) => {
   const [MyAddressForm, setMyAddressForm] = useState({
-    Address: "",
-    Address2: "",
+    Address1: "",
     City: "",
     Choose: "",
     Pincode: "",
@@ -35,6 +34,13 @@ export const MyAddress = (props) => {
   const validateMyAddress = (e) => {
     setShowError(false);
 
+    if (!MyAddressForm.Address1) {
+      console.log("Address  is Blank");
+      setErroeMassage("Please enter Address 1");
+      setShowError(true);
+      return false;
+    }
+   
     if (!MyAddressForm.City) {
       console.log("City  is Blank");
       setErroeMassage("Please enter City name");
@@ -57,6 +63,7 @@ export const MyAddress = (props) => {
   };
 
   const OnSubmitMyAddress = (e) => {
+    debugger;
     e.preventDefault();
     if (!validateMyAddress()) {
       return false;
@@ -67,8 +74,7 @@ export const MyAddress = (props) => {
         // window.location.href = "/";
         getAllAddress();
         setMyAddressForm({
-          Address: "",
-          Address2: "",
+          Address1: "",
           City: "",
           Choose: "",
           Pincode: "",
@@ -148,8 +154,28 @@ export const MyAddress = (props) => {
                 <Alert variant={"danger"}>{ErroeMassage}</Alert>
               ) : null}
               <Form onSubmit={OnSubmitMyAddress}>
+                <Row>
+                  <Col></Col>
+                  <Col>
+                    <Form.Group as={Col} controlId="formGridCity">
+                      <Form.Label>Address 1</Form.Label>
+                      <Form.Control
+                        value={MyAddressForm.Address1}
+                        onChange={(e) => {
+                          setMyAddressForm({
+                            ...MyAddressForm,
+                            Address1: e.target.value,
+                          });
+                        }}
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col></Col>
+                </Row>
+
                 <Row className="mb-3">
                   <Col></Col>
+
                   <Col>
                     <Form.Group as={Col} controlId="formGridCity">
                       <Form.Label>City</Form.Label>
@@ -178,10 +204,10 @@ export const MyAddress = (props) => {
                         }}
                       >
                         <option value=""></option>
-                        <option value="MH">maharastra</option>
-                        <option value="Gj">Gujarat</option>
-                        <option value="ks"> kashmir</option>
-                        <option value="Dh">delhi</option>
+                        <option value="maharastra">maharastra</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="kashmir"> kashmir</option>
+                        <option value="delhi">delhi</option>
                       </Form.Select>
                     </Form.Group>
                   </Col>
@@ -218,12 +244,14 @@ export const MyAddress = (props) => {
                 </Row>
               </Form>
             </div>
+            <br></br>
 
             <div>
-              <Table>
+              <Table striped bordered hover>
                 <thead>
                   <tr>
                     <td>#</td>
+                    <td>Address 1</td>
                     <td>City Name</td>
                     <td>State</td>
                     <td>Zip</td>
@@ -235,6 +263,7 @@ export const MyAddress = (props) => {
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>
+                        <td>{address.Address1}</td>
                         <td>{address.City}</td>
                         <td>{address.State}</td>
                         <td>{address.Pincode}</td>

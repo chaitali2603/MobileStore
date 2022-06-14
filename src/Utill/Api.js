@@ -124,3 +124,29 @@ export async function GetOrderByUserId(Token) {
 
   return data;
 }
+export async function ReqMyOrder(obj) {
+  var raw = JSON.stringify(obj);
+  requestOptions.body = raw;
+  const token = localStorage.getItem("Token");
+  const req = await fetch(
+    `${BaseUrl}/api/Order/CreateOrder?token=${token}`,
+    requestOptions
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
+export async function GetOrderByUserId1(Token) {
+  const req = await fetch(
+    `${BaseUrl}/api/Order/GetOrderByUserId?Token=${Token}`
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}

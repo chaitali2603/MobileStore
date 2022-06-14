@@ -18,6 +18,7 @@ import { GetUserDetailsByToken } from "../../Utill/Api";
 import { useEffect, useState } from "react";
 import { ProductDetail } from "../Product/ProductDetail";
 import { ConfrimOrder } from "./ConfrimOrder";
+import { OrderDetails } from "../Home/MyProfile/OrderDetails";
 
 function Layout() {
   const [user, setUser] = useState(null);
@@ -34,9 +35,10 @@ function Layout() {
     <>
       <BrowserRouter>
         <Header user={user}></Header>
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Product/:id" element={<ProductDetail />} />
+          <Route path="/Product/:productId" element={<ProductDetail />} />
           <Route path="Login" element={<Login />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="AboutUs" element={<AboutUs />} />
@@ -50,7 +52,9 @@ function Layout() {
           <Route path="MyOrder" element={<MyOrder />} />
           <Route path="MyAddress" element={<MyAddress />} />
           <Route path="ConfrimOrder" element={<ConfrimOrder />} />
+          <Route path="/Order/:OrderId" element={<OrderDetails />} />
         </Routes>
+
         <Footer></Footer>
       </BrowserRouter>
     </>

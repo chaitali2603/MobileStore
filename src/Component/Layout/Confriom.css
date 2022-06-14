@@ -1,0 +1,11 @@
+.cnfrionbtn{
+    justify-content: center; 
+     display: flex; 
+     align-items: center;
+     height: 100%;
+}
+.cnfrimOver{
+    overflow-y: auto;
+    max-height: 185px;
+    overflow-x: hidden;
+}

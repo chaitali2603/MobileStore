@@ -7,88 +7,6 @@ import { SearchAllProducts } from "../../Utill/Api";
 import { useToasts } from "react-toast-notifications";
 
 import "./Home.css";
-const Products = [
-  {
-    ProductName: "Samsumg",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "REadmi",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "iphone",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "oppo",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "vivo",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "one Plus",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "iPhone 11",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "Oppo Reno",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "vivo v 20",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-  {
-    ProductName: "Readme",
-    RAM: "6bg",
-    DisplaySize: "15.6 inch",
-    Battery: "5000 mAh",
-    OpratingSystem: "octa-Core Processor",
-    Price: "20,000 rs",
-  },
-];
 
 function Home() {
   const [filter, setFilter] = useState({
@@ -131,7 +49,6 @@ function Home() {
 
   const [Products, setProducts] = useState([]);
   const [CartProduct, setCartProduct] = useState([]);
-  const { addToast } = useToasts();
 
   useEffect(() => {
     var _CartProduct = localStorage.getItem("CartProduct");
@@ -168,10 +85,12 @@ function Home() {
       _product.Qty = 1;
       setCartProduct([...CartProduct, _product]);
     }
-    addToast("Iteam Added", {
-      appearance: "success",
-      autoDismiss: true,
-    });
+    // addToast("Iteam Added", {
+    //   appearance: "success",
+    //   autoDismiss: true,
+    // });
+    // debugger;
+    alert("Product added successfully");
   };
 
   useEffect(() => {

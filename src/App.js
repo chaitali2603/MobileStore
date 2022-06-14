@@ -3,14 +3,13 @@ import Layout from "./Component/Layout/Layout";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastProvider, useToasts } from "react-toast-notifications";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <ToastProvider>
-      <div className="App">
-        <Layout></Layout>
-      </div>
-    </ToastProvider>
+    <div className="App">
+      <Layout></Layout>
+    </div>
   );
 }
 
