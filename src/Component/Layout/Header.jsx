@@ -24,40 +24,24 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Navbar.Brand>
-              <Link to="/MyProfile">My Profile</Link>
-            </Navbar.Brand>
+            {!props.user ? null : (
+              <Navbar.Brand>
+                <Link to="/MyProfile">My Profile</Link>
+              </Navbar.Brand>
+            )}
 
-            <NavDropdown title="Other" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action4">My Orders</NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-              <NavDropdown.Item href="#action5">Wishlist</NavDropdown.Item>
-              <NavDropdown.Item href="#action6">Coupons</NavDropdown.Item>
-              <NavDropdown.Item href="#action7">Notifications</NavDropdown.Item>
-              <NavDropdown.Item
+            {props.user ? (
+              <Navbar.Brand
                 onClick={() => {
                   localStorage.removeItem("Token");
                   window.location.reload();
                 }}
               >
                 Log Out
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action9">
-                <Link className="ContactBtn" to={"/SetNewPassword"}>
-                  <p>Set New Password</p>
-                </Link>
-              </NavDropdown.Item>
-            </NavDropdown>
+              </Navbar.Brand>
+            ) : null}
           </Nav>
           <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-
-            <Button variant="outline-success">Search</Button>
             {props.user ? (
               `Welcom ${props.user.FirstName}`
             ) : (

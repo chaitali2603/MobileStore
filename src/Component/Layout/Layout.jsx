@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { ProductDetail } from "../Product/ProductDetail";
 import { ConfrimOrder } from "./ConfrimOrder";
 import { OrderDetails } from "../Home/MyProfile/OrderDetails";
+import { SuccessOrder } from "../Product/Successfull/SuccessOrder";
 
 function Layout() {
   const [user, setUser] = useState(null);
@@ -46,13 +47,15 @@ function Layout() {
           <Route path="SignUp" element={<SignUp />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
           <Route path="SetNewPassword" element={<SetNewPassword />} />
-          <Route path="MyProfile" element={<MyProfile />} />
-          <Route path="MyAccount" element={<MyAccount />} />
-          <Route path="PersonalInformation" element={<PersonalInformation />} />
-          <Route path="MyOrder" element={<MyOrder />} />
-          <Route path="MyAddress" element={<MyAddress />} />
+          <Route path="MyProfile" element={<MyProfile user={user} />} />
+          <Route path="MyAccount" element={<MyAccount user={user} />} />
+          <Route path="PersonalInformation" element={<PersonalInformation user={user} />} />
+          <Route path="MyOrder" element={<MyOrder user={user} />} />
+          <Route path="MyAddress" element={<MyAddress user={user} />} />
           <Route path="ConfrimOrder" element={<ConfrimOrder />} />
           <Route path="/Order/:OrderId" element={<OrderDetails />} />
+          <Route path="SuccessOrder/:OrderId" element={<SuccessOrder />} />
+          <Route path="OrderDetails" element={<OrderDetails />} />
         </Routes>
 
         <Footer></Footer>

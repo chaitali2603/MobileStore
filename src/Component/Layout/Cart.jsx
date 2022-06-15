@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ export const Cart = (props) => {
   const onCartQtyChange = (id, qty) => {
     const updatedCart = cartProducts.map((x) => {
       if (x.Id == id) {
-        return {  ...x, Qty: qty };
+        return { ...x, Qty: qty };
       } else {
         return x;
       }
@@ -78,52 +78,58 @@ export const Cart = (props) => {
               </div>
             </div>
             <div>
-              <table className="table table-light table-hover m-0">
-                <tbody>
-                  {cartProducts.map((item, index) => {
-                    return (
-                      <tr key={index} className="align-middle">
-                        <td>
-                          <img
-                            src={item.ImageUrl}
-                            className="img-cart"
-                            alt={item.Name}
-                          />
-                        </td>
-                        <td>{item.Name}</td>
-                        <td>{item.Price}</td>
-                        <td>Quantity: {item.Qty} </td>
-                        <td>{item.Qty * item.Price} </td>
-                        <td>
-                          <button
-                            onClick={() =>
-                              onCartQtyChange(item.Id, item.Qty - 1)
-                            }
-                            disabled={item.Qty == 1}
-                            className="btn btn-outline-dark mx-1"
-                          >
-                            -
-                          </button>
-                          <button
-                            onClick={() =>
-                              onCartQtyChange(item.Id, item.Qty + 1)
-                            }
-                            className="btn btn-outline-dark mx-1"
-                          >
-                            +
-                          </button>
-                          <button
-                            onClick={() => removeCart(item)}
-                            className="btn btn-outline-danger mx-5"
-                          >
-                            Remove Item
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              <Row>
+                <Col sm={2}></Col>
+                <Col sm={10}>
+                  {" "}
+                  <table className="table table-light table-hover m-0">
+                    <tbody>
+                      {cartProducts.map((item, index) => {
+                        return (
+                          <tr key={index} className="align-middle">
+                            <td>
+                              <img
+                                src={item.ImageUrl}
+                                className="img-cart"
+                                alt={item.Name}
+                              />
+                            </td>
+                            <td>{item.Name}</td>
+                            <td>{item.Price}</td>
+                            <td>Quantity: {item.Qty} </td>
+                            <td>{item.Qty * item.Price} </td>
+                            <td>
+                              <button
+                                onClick={() =>
+                                  onCartQtyChange(item.Id, item.Qty - 1)
+                                }
+                                disabled={item.Qty == 1}
+                                className="btn btn-outline-dark mx-1"
+                              >
+                                -
+                              </button>
+                              <button
+                                onClick={() =>
+                                  onCartQtyChange(item.Id, item.Qty + 1)
+                                }
+                                className="btn btn-outline-dark mx-1"
+                              >
+                                +
+                              </button>
+                              <button
+                                onClick={() => removeCart(item)}
+                                className="btn btn-outline-danger mx-5"
+                              >
+                                Remove Item
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </Col>
+              </Row>
             </div>
             <div className="d-flex justify-content-between py-3">
               <button

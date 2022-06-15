@@ -124,7 +124,7 @@ export const MyAddress = (props) => {
         <Row>
           <Col sm={2}>
             <Col className="fw-bold">
-              {props.user ? `Welcom ${props.user.FirstName}` : <></>};
+              {props.user ? `Hello ${props.user.FirstName}` : <></>}
             </Col>
             <br></br>
             <ListGroup as="ul">

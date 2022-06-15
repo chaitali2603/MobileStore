@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, ListGroup, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MyAccount } from "./MyAccount";
 import { PersonalInformation } from "./PersonalInformation";
@@ -18,6 +18,20 @@ export const MyProfile = (props) => {
       console.log(data);
     });
   }, []);
+
+  if (!props.user) {
+    return (
+      <div>
+        {" "}
+        <Navbar.Brand>
+          <Link to="/LogIn">Log in</Link>
+        </Navbar.Brand>
+         To Continue
+        <br></br>
+      </div>
+    );
+  }
+
   return (
     <>
       <Container>
@@ -29,11 +43,17 @@ export const MyProfile = (props) => {
         <Row>
           <Col sm={2}>
             {" "}
-            <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
+            <Col className="fw-bold">
+              {" "}
+              Hello {`${props.user.FirstName} ${props.user.LasttName}`}
+            </Col>
             <br></br>
             <ListGroup className="a" as="ul">
-              <ListGroup.Item className="MyProfileCss" as="li" active>
-              </ListGroup.Item>
+              <ListGroup.Item
+                className="MyProfileCss"
+                as="li"
+                active
+              ></ListGroup.Item>
               <ListGroup.Item as="li">
                 {" "}
                 <Link to={"/MyOrder"}> My Order</Link>

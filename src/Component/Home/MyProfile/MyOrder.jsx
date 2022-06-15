@@ -39,7 +39,7 @@ export const MyOrder = (props) => {
         </p>
         <Row>
           <Col sm={2}>
-            <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
+            <Col className="fw-bold"> {props.user ? `Hello ${props.user.FirstName}` : <></>}</Col>
             <br></br>
             <ListGroup as="ul">
               <ListGroup.Item

@@ -150,3 +150,14 @@ export async function GetOrderByUserId1(Token) {
 
   return data;
 }
+export async function GetProductByOrderId(OrderId) {
+  const req = await fetch(
+    `${BaseUrl}/api/Order/GetProductByOrderId?OrderId=${OrderId}`
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error("unauthorized");
+  }
+
+  return data;
+}

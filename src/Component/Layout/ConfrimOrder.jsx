@@ -8,7 +8,9 @@ import {
   Form,
   Container,
   Button,
+  Alert,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { GetAddressByUserId } from "../../Utill/Api";
 import { ReqMyOrder } from "../../Utill/Api";
 import "./Confriom.css";
@@ -24,6 +26,21 @@ export const ConfrimOrder = (props) => {
   const [UserOrder, setUserOrder] = useState({
     Address: "",
   });
+
+  const [ConfrimOrder, setConfrimOrder] = useState({
+    isChecked: false,
+  });
+
+  const validateConfrimOrder = (e) => {
+    setShowError(false);
+    if (!UserOrder.Address) {
+      console.log("Check Box is not selected");
+      setErroeMassage("Please Click on the CheckBox ");
+      setShowError(true);
+      return false;
+    }
+    return true;
+  };
 
   useEffect(() => {
     const carts = localStorage.getItem("CartProduct");
@@ -53,6 +70,10 @@ export const ConfrimOrder = (props) => {
   const onclickRadioBtn = () => {};
 
   const onSubmitOrder = () => {
+    if (!validateConfrimOrder()) {
+      return false;
+    }
+
     const _CartProduct = cartProducts.map((x) => {
       return {
         ProductId: x.Id,
@@ -68,11 +89,13 @@ export const ConfrimOrder = (props) => {
     console.log(order);
     ReqMyOrder(order).then((data) => {
       console.log(data);
-
-      localStorage.setItem('CartProduct',JSON.stringify([]));
-      // window.location.href = "/";
+      localStorage.setItem("CartProduct", JSON.stringify([]));
+      window.location.href = `/SuccessOrder/${data.Order.Id}`;
     });
   };
+
+  const [showError, setShowError] = useState(false);
+  const [ErroeMassage, setErroeMassage] = useState("");
 
   return (
     <>
@@ -107,17 +130,22 @@ export const ConfrimOrder = (props) => {
             <h3>Select Address</h3>
           </div>
           <br></br>
+          {showError ? <Alert variant={"danger"}>{ErroeMassage}</Alert> : null}
+              
           <div className="cnfrimOver">
             {allAddress.map((address, index) => {
+              
               return (
                 <Row>
                   <Col></Col>
                   <Col>
+
                     <Col sm={10}>
                       <Card style={{ width: "20rem" }}>
                         <Row>
                           <Col sm={2}>
                             {" "}
+                            
                             <div className="cnfrionbtn">
                               <Form.Check
                                 type="radio"
@@ -159,9 +187,6 @@ export const ConfrimOrder = (props) => {
               Cash On Delivery Of Amount {getTotalPrice()} Will be Deliverd
               Within 7 days
             </h3>
-            {/* <h3>
-              {`Cash On Delivery Of Amount  18000 Will be Deliverd Within 7 days`}
-            </h3> */}
           </div>
           <br></br>
           <div>
