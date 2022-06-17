@@ -161,3 +161,25 @@ export async function GetProductByOrderId(OrderId) {
 
   return data;
 }
+export async function CreateMyProduct(obj) {
+  var raw = JSON.stringify(obj);
+  requestOptions.body = raw;
+  const req = await fetch(`${BaseUrl}/api/Product/CreateProduct`, requestOptions);
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
+export async function DeleteMyProduct(ProductId) {
+  const req = await fetch(
+    `${BaseUrl}/api/Product/DeleteProduct?ProductId=${ProductId}`
+  );
+  // const data = await req.json();
+  if (!req.ok) {
+    throw new Error("unauthorized");
+  }
+
+  return true;
+}

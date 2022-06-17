@@ -45,3 +45,15 @@
   background-color: rgb(185, 17, 107) !important;
   
 }
+
+li.list-group-item.active a {
+  color: white;
+  text-decoration: none;
+}
+
+li.list-group-item a {
+  text-decoration: none;
+}
+.rightside{
+  float: right;
+}

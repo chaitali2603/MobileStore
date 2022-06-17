@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Table, Row, Col, ListGroup, Container } from "react-bootstrap";
 import { GetProductByOrderId } from "../../../Utill/Api";
+import { SideBar } from "../../Layout/SideBar";
 /**
  * @author
  * @function OrderDetails
@@ -41,35 +42,17 @@ export const OrderDetails = (props) => {
   return (
     <>
     <Container>
-    <br></br>
-        <h1>Order Details</h1>
+    
+        <h1 className="SuccessMargin">Order Details</h1>
         <p>
           __________________________________________________________________________________________________________________________________________________________________________________________________
         </p>
       <Row>
         <Col sm={2}>
           {" "}
-          <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
+          <Col className="fw-bold"> {props.user ? `Welcom ${props.user.FirstName}` : <></>};</Col>
           <br></br>
-          <ListGroup className="a" as="ul">
-            <ListGroup.Item
-              className="MyProfileCss"
-              as="li"
-              active
-            ></ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/MyOrder"}> My Order</Link>
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/PersonalInformation"}> Personal Information</Link>
-            </ListGroup.Item>
-            <ListGroup.Item as="li">
-              {" "}
-              <Link to={"/MyAddress"}> My Address</Link>
-            </ListGroup.Item>
-          </ListGroup>
+          <SideBar></SideBar>
         </Col>
         <Col sm={10}>
           <Table striped bordered hover>

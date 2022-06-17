@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { ReqPersonalInformation } from "../../../Utill/Api";
 import { GetAppUserById } from "../../../Utill/Api";
+import { SideBar } from "../../Layout/SideBar";
 
 /**
  * @author
@@ -32,7 +33,6 @@ export const PersonalInformation = (props) => {
 
   const validatePersonalInformation = (e) => {
     setShowError(false);
-   
 
     if (!PersonalInformationForm.Email) {
       console.log("Email is Blank");
@@ -84,36 +84,20 @@ export const PersonalInformation = (props) => {
   return (
     <>
       <Container>
-        <br></br>
-        <h1>Personal Information</h1>
+        <h1 className="SuccessMargin">Personal Information</h1>
         <p>
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
 
         <Row>
           <Col sm={2}>
-            <Col className="fw-bold"> Hello Chaitali Trivedi</Col>
+            <Col className="fw-bold">
+              {" "}
+              {props.user ? `Welcom ${props.user.FirstName}` : <></>};
+            </Col>
             <br></br>
 
-            <ListGroup as="ul">
-              <ListGroup.Item
-                className="fw-bold"
-                as="li"
-                active
-              ></ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyOrder"}> My Order</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/PersonalInformation"}> Personal Information</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyAddress"}> My Address</Link>
-              </ListGroup.Item>
-            </ListGroup>
+            <SideBar></SideBar>
           </Col>
 
           <Col sm={10}>

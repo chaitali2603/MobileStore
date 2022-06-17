@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { GetAddressByUserId } from "../../../Utill/Api";
 import { ReqMyAddress } from "../../../Utill/Api";
 import { DeleteAddressByAddressId } from "../../../Utill/Api";
+import { SideBar } from "../../Layout/SideBar";
 
 /**
  * @author
@@ -40,7 +41,7 @@ export const MyAddress = (props) => {
       setShowError(true);
       return false;
     }
-   
+
     if (!MyAddressForm.City) {
       console.log("City  is Blank");
       setErroeMassage("Please enter City name");
@@ -63,7 +64,7 @@ export const MyAddress = (props) => {
   };
 
   const OnSubmitMyAddress = (e) => {
-    debugger;
+  
     e.preventDefault();
     if (!validateMyAddress()) {
       return false;
@@ -115,8 +116,8 @@ export const MyAddress = (props) => {
 
   return (
     <>
-      <br></br>
-      <h1> Address</h1>
+      
+      <h1 className="SuccessMargin"> Address</h1>
       <p>
         _____________________________________________________________________________________________________________________________________________________________________________________________
       </p>
@@ -127,25 +128,7 @@ export const MyAddress = (props) => {
               {props.user ? `Hello ${props.user.FirstName}` : <></>}
             </Col>
             <br></br>
-            <ListGroup as="ul">
-              <ListGroup.Item
-                className="MyProfileCss"
-                as="li"
-                active
-              ></ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyOrder"}> My Order</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/PersonalInformation"}> Personal Information</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyAddress"}> My Address</Link>
-              </ListGroup.Item>
-            </ListGroup>
+            <SideBar></SideBar>
           </Col>
 
           <Col sm={10}>

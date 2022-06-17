@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Container, Row, Col, ListGroup, Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { GetOrderByUserId1 } from "../../../Utill/Api";
+import { SideBar } from "../../Layout/SideBar";
 /**
  * @author
  * @function MyOrder
@@ -32,8 +33,8 @@ export const MyOrder = (props) => {
   return (
     <>
       <Container>
-        <br></br>
-        <h1>My Order</h1>
+        
+        <h1 className="SuccessMargin">My Order</h1>
         <p>
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
@@ -41,25 +42,7 @@ export const MyOrder = (props) => {
           <Col sm={2}>
             <Col className="fw-bold"> {props.user ? `Hello ${props.user.FirstName}` : <></>}</Col>
             <br></br>
-            <ListGroup as="ul">
-              <ListGroup.Item
-                className="fw-bold"
-                as="li"
-                active
-              ></ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyOrder"}> My Order</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/PersonalInformation"}>Personal Informaation</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyAddress"}> My Address</Link>
-              </ListGroup.Item>
-            </ListGroup>
+           <SideBar></SideBar>
           </Col>
           <Col sm={10}>
             <Table striped bordered hover>

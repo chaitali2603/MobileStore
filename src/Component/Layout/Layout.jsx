@@ -20,6 +20,7 @@ import { ProductDetail } from "../Product/ProductDetail";
 import { ConfrimOrder } from "./ConfrimOrder";
 import { OrderDetails } from "../Home/MyProfile/OrderDetails";
 import { SuccessOrder } from "../Product/Successfull/SuccessOrder";
+import { CreateProduct } from "../Home/MyProfile/CreateProduct";
 
 function Layout() {
   const [user, setUser] = useState(null);
@@ -27,7 +28,6 @@ function Layout() {
   useEffect(() => {
     const Token = localStorage.getItem("Token");
     GetUserDetailsByToken(Token).then((data) => {
-      console.log(data);
       setUser(data);
     });
   }, []);
@@ -56,6 +56,8 @@ function Layout() {
           <Route path="/Order/:OrderId" element={<OrderDetails />} />
           <Route path="SuccessOrder/:OrderId" element={<SuccessOrder />} />
           <Route path="OrderDetails" element={<OrderDetails />} />
+          <Route path="CreateProduct" element={<CreateProduct />} />
+
         </Routes>
 
         <Footer></Footer>

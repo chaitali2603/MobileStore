@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import "./Header.css";
 
+
 function Header(props) {
   return (
     <Navbar className="header1" expand="lg">
@@ -26,7 +27,7 @@ function Header(props) {
           >
             {!props.user ? null : (
               <Navbar.Brand>
-                <Link to="/MyProfile">My Profile</Link>
+                <Link to={"/PersonalInformation"}> My Profile</Link>
               </Navbar.Brand>
             )}
 

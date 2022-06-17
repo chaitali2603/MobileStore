@@ -26,7 +26,7 @@ export const MyProfile = (props) => {
         <Navbar.Brand>
           <Link to="/LogIn">Log in</Link>
         </Navbar.Brand>
-         To Continue
+        To Continue
         <br></br>
       </div>
     );
@@ -35,8 +35,7 @@ export const MyProfile = (props) => {
   return (
     <>
       <Container>
-        <br></br>
-        <h1>My Profile</h1>
+        <h1 className="SuccessMargin">My Profile</h1>
         <p>
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
@@ -49,11 +48,6 @@ export const MyProfile = (props) => {
             </Col>
             <br></br>
             <ListGroup className="a" as="ul">
-              <ListGroup.Item
-                className="MyProfileCss"
-                as="li"
-                active
-              ></ListGroup.Item>
               <ListGroup.Item as="li">
                 {" "}
                 <Link to={"/MyOrder"}> My Order</Link>
@@ -65,6 +59,10 @@ export const MyProfile = (props) => {
               <ListGroup.Item as="li">
                 {" "}
                 <Link to={"/MyAddress"}> My Address</Link>
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                {" "}
+                <Link to={"/CreateProduct"}> Create Product</Link>
               </ListGroup.Item>
             </ListGroup>
           </Col>
