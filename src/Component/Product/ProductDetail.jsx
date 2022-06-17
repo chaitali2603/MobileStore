@@ -65,10 +65,10 @@ export const ProductDetail = (props) => {
               <Col>Price {productDetail.Price}</Col>
             </Row>
             <Row>
-              <Col>Discription</Col>
+              <Col>Discription {productDetail.Discription}</Col>
             </Row>
             <Row>
-              <Col>Colour</Col>
+              <Col>Colour {productDetail.Colour}</Col>
             </Row>
             <Row></Row>
           </Col>

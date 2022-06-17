@@ -9,7 +9,8 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Header.css";
-
+import { IoPersonOutline } from "react-icons/io5";
+import { IoBagHandleOutline  } from "react-icons/io5";
 
 function Header(props) {
   return (
@@ -27,7 +28,13 @@ function Header(props) {
           >
             {!props.user ? null : (
               <Navbar.Brand>
-                <Link to={"/PersonalInformation"}> My Profile</Link>
+                <Link to={"/PersonalInformation"}> 
+                <div className="SuccessMargin">
+                  <h1>
+                    <IoPersonOutline /><br></br>
+                    My Profile
+                  </h1>{" "}
+              </div></Link>
               </Navbar.Brand>
             )}
 
@@ -52,7 +59,12 @@ function Header(props) {
             )}
 
             <Link className="CartBtn" to={"/Cart"}>
-              <Button>Cart</Button>
+              <Button><div className="CartBtn">
+                  <h1>
+                    <IoBagHandleOutline  />
+                  </h1>
+                    Cart
+              </div></Button>
             </Link>
           </Form>
         </Navbar.Collapse>

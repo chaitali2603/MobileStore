@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { IoBagAddSharp } from "react-icons/io5";
 
 /**
  * @author
@@ -69,7 +69,7 @@ export const Cart = (props) => {
               {" "}
               <div className="SuccessMargin">
                 <h1>
-                  <IoMdCheckmarkCircleOutline />
+                  <IoBagAddSharp />
                 </h1>{" "}
               </div>
             </Col>
@@ -79,7 +79,7 @@ export const Cart = (props) => {
           <Row>
             <Col></Col>
             <Col>
-              <h1 style={{ color: "green" }}>Order Confirmed</h1>
+              <h1 style={{ color: "green" }}>Hey, it feel so light!</h1>
             </Col>
             <Col></Col>
           </Row>
@@ -88,9 +88,7 @@ export const Cart = (props) => {
           <Row>
             <Col>
               <h5>
-                Your Order is confirmed.You will receive An Order Confirmation
-                Email/SMS <br></br>Shorty with the expected delivery Date for
-                Your items.
+                There are nothing in your bag. Let's add some items.
               </h5>
             </Col>
           </Row>
@@ -100,7 +98,7 @@ export const Cart = (props) => {
             <Col></Col>
             <Col>
               <Link to={"/"}>
-                <Button variant="light">Continue Shopping</Button>{" "}
+                <Button variant="light">Add Item from Home</Button>{" "}
               </Link>{" "}
               
             </Col>
