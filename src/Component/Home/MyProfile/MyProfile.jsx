@@ -5,6 +5,7 @@ import { MyAccount } from "./MyAccount";
 import { PersonalInformation } from "./PersonalInformation";
 import "./MyProfile.css";
 import { GetAppUserById } from "../../../Utill/Api";
+import { SideBar } from "../../Layout/SideBar";
 
 /**
  * @author
@@ -47,24 +48,7 @@ export const MyProfile = (props) => {
               Hello {`${props.user.FirstName} ${props.user.LasttName}`}
             </Col>
             <br></br>
-            <ListGroup className="a" as="ul">
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyOrder"}> My Order</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/PersonalInformation"}> Personal Information</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/MyAddress"}> My Address</Link>
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                {" "}
-                <Link to={"/CreateProduct"}> Create Product</Link>
-              </ListGroup.Item>
-            </ListGroup>
+            <SideBar user={props.user}></SideBar>
           </Col>
           <Col sm={10}></Col>
         </Row>

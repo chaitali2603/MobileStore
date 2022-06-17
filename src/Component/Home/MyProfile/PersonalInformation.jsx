@@ -97,7 +97,7 @@ export const PersonalInformation = (props) => {
             </Col>
             <br></br>
 
-            <SideBar></SideBar>
+            <SideBar user={props.user}></SideBar>
           </Col>
 
           <Col sm={10}>

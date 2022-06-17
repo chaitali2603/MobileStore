@@ -47,17 +47,30 @@ function Layout() {
           <Route path="SignUp" element={<SignUp />} />
           <Route path="ForgotPassword" element={<ForgotPassword />} />
           <Route path="SetNewPassword" element={<SetNewPassword />} />
-          <Route path="MyProfile" element={<MyProfile user={user} />} />
-          <Route path="MyAccount" element={<MyAccount user={user} />} />
-          <Route path="PersonalInformation" element={<PersonalInformation user={user} />} />
-          <Route path="MyOrder" element={<MyOrder user={user} />} />
-          <Route path="MyAddress" element={<MyAddress user={user} />} />
-          <Route path="ConfrimOrder" element={<ConfrimOrder />} />
-          <Route path="/Order/:OrderId" element={<OrderDetails />} />
-          <Route path="SuccessOrder/:OrderId" element={<SuccessOrder />} />
-          <Route path="OrderDetails" element={<OrderDetails />} />
-          <Route path="CreateProduct" element={<CreateProduct />} />
 
+          {user ? (
+            <>
+              <Route path="MyProfile" element={<MyProfile user={user} />} />
+              <Route path="MyAccount" element={<MyAccount user={user} />} />
+              <Route
+                path="PersonalInformation"
+                element={<PersonalInformation user={user} />}
+              />
+              <Route path="MyOrder" element={<MyOrder user={user} />} />
+              <Route path="MyAddress" element={<MyAddress user={user} />} />
+              <Route path="ConfrimOrder" element={<ConfrimOrder />} />
+              <Route path="/Order/:OrderId" element={<OrderDetails />} />
+              <Route
+                path="OrderDetails"
+                element={<OrderDetails user={user} />}
+              />
+              <Route path="SuccessOrder/:OrderId" element={<SuccessOrder />} />
+              <Route
+                path="CreateProduct"
+                element={<CreateProduct user={user} />}
+              />
+            </>
+          ) : null}
         </Routes>
 
         <Footer></Footer>

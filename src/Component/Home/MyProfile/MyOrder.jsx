@@ -42,13 +42,15 @@ export const MyOrder = (props) => {
           <Col sm={2}>
             <Col className="fw-bold"> {props.user ? `Hello ${props.user.FirstName}` : <></>}</Col>
             <br></br>
-           <SideBar></SideBar>
+           <SideBar user={props.user}></SideBar>
           </Col>
           <Col sm={10}>
             <Table striped bordered hover>
               <thead>
                 <tr>
-                  <td>#</td>
+                  <td>Sr.no</td>
+                  <td>First Name</td>
+                  <td>Last Name</td>
                   <td>Order Id</td>
                   <td>Order Date</td>
                   <td> View Details</td>
@@ -59,6 +61,8 @@ export const MyOrder = (props) => {
                   return (
                     <tr>
                       <td>{index + 1}</td>
+                      <td>{x.FirstName}</td>
+                      <td>{x.LasttName}</td>
                       <td>{x.Id}</td>
                       <td>{convertDate(x.CreatedDate)}</td>
                       <td>

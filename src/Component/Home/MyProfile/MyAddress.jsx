@@ -128,7 +128,7 @@ export const MyAddress = (props) => {
               {props.user ? `Hello ${props.user.FirstName}` : <></>}
             </Col>
             <br></br>
-            <SideBar></SideBar>
+            <SideBar user={props.user}></SideBar>
           </Col>
 
           <Col sm={10}>

@@ -41,11 +41,9 @@ export const Filter = (props) => {
             }}
             aria-describedby="search-addon"
           />
-          <span className="input-group-text border-0" id="search-addon">
-            <i className="fas fa-search"></i>
-          </span>
         </div>
 
+            
         <Slider
           onChangeSlider={(val) => {
             setFilter({ ...filter, Price: val });
@@ -55,7 +53,7 @@ export const Filter = (props) => {
         >
           {" "}
         </Slider>
-
+          
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>RAM</Accordion.Header>

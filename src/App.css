@@ -43,7 +43,6 @@
 
 .Newclr {
   background-color: rgb(185, 17, 107) !important;
-  
 }
 
 li.list-group-item.active a {
@@ -54,6 +53,10 @@ li.list-group-item.active a {
 li.list-group-item a {
   text-decoration: none;
 }
-.rightside{
+.rightside {
   float: right;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
 }

@@ -183,3 +183,14 @@ export async function DeleteMyProduct(ProductId) {
 
   return true;
 }
+export async function GetProductById(ProductId) {
+  const req = await fetch(
+    `${BaseUrl}/api/Product/GetProductById?ProductId=${ProductId}`
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error("unauthorized");
+  }
+
+  return data;
+}

@@ -207,6 +207,10 @@ export const CreateProduct = (props) => {
     // console.log(CreateProduct);
   };
   const onDeleteCreateProduct = (product) => {
+    var yesorno = window.confirm("Are you sure you want to delete This Product?");
+    if (!yesorno) {
+      return;
+    }
     console.log(product);
     DeleteMyProduct(product.Id).then(() => {
       getProductdata();
@@ -223,7 +227,7 @@ export const CreateProduct = (props) => {
         <Row>
           <Col sm={2}>
             {" "}
-            <SideBar></SideBar>{" "}
+            <SideBar user={props.user}></SideBar>{" "}
           </Col>
 
           <Col sm={10}>
@@ -278,7 +282,7 @@ export const CreateProduct = (props) => {
                       <Form.Group className="mb-3" controlId="formGridEmail">
                         <Form.Label>Price</Form.Label>
                         <Form.Control
-                          type="Fname"
+                          type={'number'}
                           placeholder="Product Price"
                           value={popupProduct.Price}
                           onChange={(e) => {

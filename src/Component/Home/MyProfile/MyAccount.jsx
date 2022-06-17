@@ -21,7 +21,7 @@ export const MyAccount = (props) => {
               {props.user ? `Welcom ${props.user.FirstName}` : <></>};
             </Col>
             <br></br>
-            <SideBar></SideBar>
+            <SideBar user={props.user}></SideBar>
           </Col>
           <Col sm={10}> this is my Account</Col>
         </Row>

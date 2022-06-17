@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useCart } from "react-use-cart";
 import { Link } from "react-router-dom";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 /**
  * @author
@@ -59,7 +60,57 @@ export const Cart = (props) => {
     setCartProducts([]);
   };
 
-  // if (isEmpty) return <h5 className="text-center py-5"> Cart is Empty </h5>;
+  if (!cartProducts || cartProducts.length == 0)
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col>
+              {" "}
+              <div className="SuccessMargin">
+                <h1>
+                  <IoMdCheckmarkCircleOutline />
+                </h1>{" "}
+              </div>
+            </Col>
+          </Row>
+          <br></br>
+
+          <Row>
+            <Col></Col>
+            <Col>
+              <h1 style={{ color: "green" }}>Order Confirmed</h1>
+            </Col>
+            <Col></Col>
+          </Row>
+          <br></br>
+
+          <Row>
+            <Col>
+              <h5>
+                Your Order is confirmed.You will receive An Order Confirmation
+                Email/SMS <br></br>Shorty with the expected delivery Date for
+                Your items.
+              </h5>
+            </Col>
+          </Row>
+          <br></br>
+          <br></br>
+          <Row>
+            <Col></Col>
+            <Col>
+              <Link to={"/"}>
+                <Button variant="light">Continue Shopping</Button>{" "}
+              </Link>{" "}
+              
+            </Col>
+            <Col></Col>
+          </Row>
+          <br></br>
+          <br></br>
+        </Container>
+      </>
+    );
   return (
     <>
       <div className="container-fluid py-5">

@@ -15,6 +15,11 @@ export const SideBar = (props) => {
     return location.pathname == Group;
   };
 
+  if (!props.user) {
+    console.log(props.user)
+    return <div></div>;
+  }
+
   return (
     <>
       <Row>
@@ -31,10 +36,13 @@ export const SideBar = (props) => {
             {" "}
             <Link to={"/MyAddress"}> My Address</Link>
           </ListGroup.Item>
-          <ListGroup.Item as="li" active={SeePath("/CreateProduct")}>
-            {" "}
-            <Link to={"/CreateProduct"}> All Product</Link>
-          </ListGroup.Item>
+
+          {props.user.UserType == 2 ? (
+            <ListGroup.Item as="li" active={SeePath("/CreateProduct")}>
+              {" "}
+              <Link to={"/CreateProduct"}> All Product</Link>
+            </ListGroup.Item>
+          ) : null}
         </Col>
       </Row>
     </>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, Image } from "react-bootstrap";
+import { GetProductById } from "../../Utill/Api";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +9,7 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
+import { useEffect } from "react";
 /**
  * @author
  * @function ProductDetail
@@ -15,25 +18,62 @@ import {
 export const ProductDetail = (props) => {
   let { productId } = useParams();
 
-  const [productDetail, setProductDetail] = useState(null);
+  const [productDetail, setProductDetail] = useState({});
   console.log(productId);
 
   //steps
   //1 - API.js function 1 api/product/GetProductById?ProductId=productId
   //response setProductDetail
 
-  if (!productDetail) {
-     return // <div>Loading</div>;
+  const getProductDetail = () => {
+    GetProductById(productId).then((x) => {
+      console.log(x);
+      setProductDetail(x);
+    });
+    //api.then((response)=>{setProductDetail(response)})
+  };
+
+  useEffect(() => {
+    getProductDetail();
+  }, []);
+
+  if (!productDetail.Id) {
+    return; // <div>Loading</div>;
   }
 
   return (
-    <div>
-      <Row>
-        <Col>
-          <Image src={productDetail?.ImageSrc}></Image>
-        </Col>
-        <Col>Product name {productDetail.Price}</Col>
-      </Row>
-    </div>
+    <>
+      <div>
+        <Row>
+          <Col sm={5}>
+            <Row>
+              <Col>
+                {" "}
+                image <Image src={productDetail?.ImageSrc}></Image>
+              </Col>
+            </Row>
+            <Row>
+              <Col> Add TO Cart Button </Col>
+              <Col> Buy Button </Col>
+            </Row>
+          </Col>
+          <Col sm={7}>
+            <Row>
+              <Col>Name</Col>
+            </Row>
+            <Row>
+              <Col>Price {productDetail.Price}</Col>
+            </Row>
+            <Row>
+              <Col>Discription</Col>
+            </Row>
+            <Row>
+              <Col>Colour</Col>
+            </Row>
+            <Row></Row>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 };

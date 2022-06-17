@@ -52,7 +52,7 @@ export const OrderDetails = (props) => {
           {" "}
           <Col className="fw-bold"> {props.user ? `Welcom ${props.user.FirstName}` : <></>};</Col>
           <br></br>
-          <SideBar></SideBar>
+          <SideBar user={props.user}></SideBar>
         </Col>
         <Col sm={10}>
           <Table striped bordered hover>

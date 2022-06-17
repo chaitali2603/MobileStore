@@ -21,7 +21,7 @@ export const Product = (props) => {
           <div>RAM - {props.product.RAM}</div>
           <div>{props.product.DisplaySize}</div>
           <div>{props.product.Battery}</div>
-          <div>{props.product.OS}</div>
+          <div>{props.product.Brand}</div>
           <div>{props.product.Price}</div>
         </Card.Text>
         <>
