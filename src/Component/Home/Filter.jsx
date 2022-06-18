@@ -56,7 +56,7 @@ export const Filter = (props) => {
           
         <Accordion>
           <Accordion.Item eventKey="0">
-            <Accordion.Header>RAM</Accordion.Header>
+            <Accordion.Header><b>RAM</b></Accordion.Header>
             <Accordion.Body>
               <CheckBox
                 items={filter.Ram}

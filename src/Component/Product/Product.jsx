@@ -30,18 +30,15 @@ export const Product = (props) => {
             <div>{props.product.Price}</div>
           </Card.Text>
           <>
-            <div className="btn btn-sm btn-outline-success">
-              <Button
+          <Button
                 onClick={() => {
                   props.onAddCart(props.product);
                 }}
-                variant="primary"
+                variant="outline-primary"
                 size="md"
-                active
               >
                 Add to Cart
               </Button>
-            </div>
           </>
         </Card.Body>
       </Card>

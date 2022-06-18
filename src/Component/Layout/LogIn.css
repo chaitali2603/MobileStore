@@ -1,0 +1,29 @@
+.loginstyle {
+  /* min-height: 1000px; */
+  height: calc(100vh - 50px);
+}
+.logincard {
+  top: 50px;
+  padding: 20px;
+  box-shadow: 0 0 3px rgb(52 58 64 / 15%) !important;
+  text-align: left;
+}
+.loginbtn2 {
+  width: 100% !important;
+}
+.Linkwraper a {
+  text-decoration: none;
+  color: black;
+  text-align: right;
+}
+.Linkwraper {
+   font-weight: 600;
+    text-align: right;
+  }
+.signuptext{
+    text-align: center;
+}
+.Linkwrapera{
+    text-decoration: none;
+    color: black;
+}

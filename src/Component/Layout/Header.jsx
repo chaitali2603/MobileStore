@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { IoPersonOutline } from "react-icons/io5";
 import { BiShoppingBag } from "react-icons/bi";
-import { MdMobileFriendly } from "react-icons/md";
+import { MdMobileFriendly, MdSearch } from "react-icons/md";
+import { FiHeart } from "react-icons/fi";
 
 function Header(props) {
   return (
@@ -19,10 +20,10 @@ function Header(props) {
       <Container fluid>
         <Navbar.Brand>
           <Link to="/">
-            <MdMobileFriendly size={30} className='BrandLogo' />
+            <MdMobileFriendly size={30} className="BrandLogo" />
           </Link>
         </Navbar.Brand>
-        <div className="BrandName" >Mobile Carts</div>
+        <div className="BrandName">Mobile Carts</div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -51,20 +52,103 @@ function Header(props) {
               </Link>
             )} */}
 
-            <div className="HeaderIcon">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2 SearchBox"
+              aria-label="Search"
+            />
+            {/* <div className="HeaderIcon">
               <Link to={"/PersonalInformation"}>
-                <div>
+                <div className="Headericonalign">
                   <IoPersonOutline size={30} className="ProfileIcoon" />{" "}
-                  {/*My Profile */}
                   <div className="headerboldtext">Profile</div>
                 </div>
               </Link>
+            </div> */}
+            <div className="dropdown">
+              <div className="HeaderIcon">
+                <Link to={"/PersonalInformation"}>
+                  <div className="Headericonalign">
+                    <IoPersonOutline size={25} className="ProfileIcoon" />{" "}
+                    {/*My Profile */}
+                    <div className="headerboldtext">Profile</div>
+                  </div>
+                </Link>
+              </div>
+              <div className="dropdown-content">
+                <div>
+                  <div className="Welcome">
+                    {" "}
+                    welcome
+                    {props.user ? ` ${props.user.FirstName}` : null}{" "}
+                  </div>
+                  <div>To access account and manage orders</div>
+                  {!props.user ? (
+                    <div>
+                      <Link className="LoginBtn" to={"/Login"}>
+                        {" "}
+                        <Button size="sm" variant="outline-primary">
+                          {" "}
+                          LogIn/SignUp
+                        </Button>
+                      </Link>
+                    </div>
+                  ) : null}
+                </div>
+                {props.user ? (
+                  <>
+                    <div>
+                      <hr />
+                    </div>
+                    <div>
+                      <div className="MyProfileLink">Orders</div>
+                      <div className="MyProfileLink">Profile</div>
+                      <div className="MyProfileLink">Address</div>
+                      <div className="MyProfileLink">Products</div>
+                      <div className="MyProfileLink">Logout</div>
+                    </div>
+                  </>
+                ) : null}
+                <div>
+                  <hr />
+                </div>
+                <div>
+                  <div className="MyProfileLink"> Contact Us</div>
+                  <div className="MyProfileLink">About Us</div>
+                </div>
+                {props.user ? (
+                  <>
+                    <div>
+                      <hr />
+                    </div>
+                    <div>
+                      <div
+                        className="MyProfileLink"
+                        onClick={() => {
+                          localStorage.removeItem("Token");
+                          window.location.reload();
+                        }}
+                      >
+                        Log Out
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
             </div>
-
             <div className="HeaderIcon">
               <Link className="CartBtn" to={"/Cart"}>
                 <div>
-                  <BiShoppingBag size={30} className="CartIcon" />
+                  <FiHeart size={22} className="CartIcon" />
+                  <div className="headerboldtext">Wishlist</div>
+                </div>
+              </Link>
+            </div>
+            <div className="HeaderIcon">
+              <Link className="CartBtn" to={"/Cart"}>
+                <div>
+                  <BiShoppingBag size={25} className="CartIcon" />
                   <div className="headerboldtext">Cart</div>
                 </div>
               </Link>
