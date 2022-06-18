@@ -60,3 +60,7 @@ li.list-group-item a {
 body {
   font-family: "Montserrat", sans-serif !important;
 }
+
+.navbar a {
+  text-decoration: none;
+}

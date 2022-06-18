@@ -10,15 +10,19 @@ import {
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { IoPersonOutline } from "react-icons/io5";
-import { IoBagHandleOutline  } from "react-icons/io5";
+import { BiShoppingBag } from "react-icons/bi";
+import { MdMobileFriendly } from "react-icons/md";
 
 function Header(props) {
   return (
     <Navbar className="header1" expand="lg">
       <Container fluid>
         <Navbar.Brand>
-          <Link to="/">Mobile Cart</Link>
+          <Link to="/">
+            <MdMobileFriendly size={30} className='BrandLogo' />
+          </Link>
         </Navbar.Brand>
+        <div className="BrandName" >Mobile Carts</div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -26,19 +30,7 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            {!props.user ? null : (
-              <Navbar.Brand>
-                <Link to={"/PersonalInformation"}> 
-                <div className="SuccessMargin">
-                  <h1>
-                    <IoPersonOutline /><br></br>
-                    My Profile
-                  </h1>{" "}
-              </div></Link>
-              </Navbar.Brand>
-            )}
-
-            {props.user ? (
+            {/* {props.user ? (
               <Navbar.Brand
                 onClick={() => {
                   localStorage.removeItem("Token");
@@ -47,25 +39,36 @@ function Header(props) {
               >
                 Log Out
               </Navbar.Brand>
-            ) : null}
+            ) : null} */}
           </Nav>
           <Form className="d-flex">
+            {/* <br></br>
             {props.user ? (
-              `Welcom ${props.user.FirstName}`
+              `Welcome ${props.user.FirstName}`
             ) : (
               <Link className="LoginBtn" to={"/Login"}>
                 <Button>Log in</Button>
               </Link>
-            )}
+            )} */}
 
-            <Link className="CartBtn" to={"/Cart"}>
-              <Button><div className="CartBtn">
-                  <h1>
-                    <IoBagHandleOutline  />
-                  </h1>
-                    Cart
-              </div></Button>
-            </Link>
+            <div className="HeaderIcon">
+              <Link to={"/PersonalInformation"}>
+                <div>
+                  <IoPersonOutline size={30} className="ProfileIcoon" />{" "}
+                  {/*My Profile */}
+                  <div className="headerboldtext">Profile</div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="HeaderIcon">
+              <Link className="CartBtn" to={"/Cart"}>
+                <div>
+                  <BiShoppingBag size={30} className="CartIcon" />
+                  <div className="headerboldtext">Cart</div>
+                </div>
+              </Link>
+            </div>
           </Form>
         </Navbar.Collapse>
       </Container>

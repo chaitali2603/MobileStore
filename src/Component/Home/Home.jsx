@@ -1,12 +1,17 @@
-import { Container, Row, Col, Typography } from "react-bootstrap";
+import { Container, Row, Col, Typography, Image } from "react-bootstrap";
 import { Filter } from "./Filter";
 import { Product } from "../Product/Product";
 import "./Filter.css";
 import React, { useState, useEffect } from "react";
 import { SearchAllProducts } from "../../Utill/Api";
-import { useToasts } from "react-toast-notifications";
+import AwesomeSlider from "react-awesome-slider";
+import img from "../../image/slider1.jpg";
+import img2 from "../../image/slider2.png";
+import img3 from "../../image/slider3.png";
+import Pagination from "react-bootstrap/Pagination";
 
 import "./Home.css";
+import { useMemo } from "react";
 
 function Home() {
   const [filter, setFilter] = useState({
@@ -63,11 +68,40 @@ function Home() {
     getProductdata();
   }, [filter]);
 
+  const [totalRows, setTotalRows] = useState(0);
+
   const getProductdata = () => {
     SearchAllProducts(filter).then((data) => {
       console.log(data);
       setProducts(data);
+      if (data.length > 0) {
+        setTotalRows(data[0].TotalCount);
+      } else {
+        setTotalRows(0);
+      }
     });
+  };
+
+  const onChangePageNumber = (pageNo) => {
+    setFilter({ ...filter, pageno: pageNo });
+  };
+  const GetPageItem = () => {
+    let items = [];
+    const totalPageItem = Math.ceil(totalRows / filter.recordperpage);
+    for (let number = 1; number <= totalPageItem; number++) {
+      items.push(
+        <Pagination.Item
+          onClick={() => {
+            onChangePageNumber(number);
+          }}
+          key={number}
+          active={number === filter.pageno}
+        >
+          {number}
+        </Pagination.Item>
+      );
+    }
+    return items;
   };
 
   const Onaddcart = (_product) => {
@@ -111,6 +145,17 @@ function Home() {
 
         <Col sm={10} className="ProductContainer">
           <Row>
+            <Col>
+              <div className="SliderWraper">
+                <AwesomeSlider style={{ height: 300 }}>
+                  <div data-src={img} />
+                  <div data-src={img2} />
+                  <div data-src={img3} />
+                </AwesomeSlider>
+              </div>
+            </Col>
+          </Row>
+          <Row>
             {Products.map((Product1, i) => {
               return (
                 <Col key={i} sm={3}>
@@ -119,6 +164,47 @@ function Home() {
               );
             })}
           </Row>{" "}
+          <Row>
+            <Col>
+              <div style={{ padding: 5, textAlign: "center" }}>
+                <Pagination>
+                  <Pagination.First
+                    disabled={filter.pageno == 1}
+                    onClick={() => {
+                      onChangePageNumber(1);
+                    }}
+                  />
+                  <Pagination.Prev
+                    disabled={filter.pageno == 1}
+                    onClick={() => {
+                      onChangePageNumber(filter.pageno - 1);
+                    }}
+                  />
+                  <GetPageItem></GetPageItem>
+                  <Pagination.Next
+                    disabled={
+                      filter.pageno ==
+                      Math.ceil(totalRows / filter.recordperpage)
+                    }
+                    onClick={() => {
+                      onChangePageNumber(filter.pageno + 1);
+                    }}
+                  />
+                  <Pagination.Last
+                    disabled={
+                      filter.pageno ==
+                      Math.ceil(totalRows / filter.recordperpage)
+                    }
+                    onClick={() => {
+                      onChangePageNumber(
+                        Math.ceil(totalRows / filter.recordperpage)
+                      );
+                    }}
+                  />
+                </Pagination>
+              </div>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

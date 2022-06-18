@@ -49,7 +49,7 @@ export const ProductDetail = (props) => {
             <Row>
               <Col>
                 {" "}
-                image <Image src={productDetail?.ImageSrc}></Image>
+                image <Image src={productDetail?.ImageUrl}></Image>
               </Col>
             </Row>
             <Row>

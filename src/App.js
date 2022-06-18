@@ -4,6 +4,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastProvider, useToasts } from "react-toast-notifications";
 import "react-toastify/dist/ReactToastify.css";
+import 'react-awesome-slider/dist/styles.css';
+
 
 function App() {
   return (

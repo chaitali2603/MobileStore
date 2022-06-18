@@ -9,11 +9,17 @@ import {
   Form,
   FloatingLabel,
   Alert,
+  Image,
 } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { SearchAllProducts, CreateMyProduct } from "../../../Utill/Api";
+import {
+  SearchAllProducts,
+  CreateMyProduct,
+  ProductMultipartSave,
+} from "../../../Utill/Api";
 import DataTable from "react-data-table-component";
 import { DeleteMyProduct } from "../../../Utill/Api";
+import { useRef } from "react";
 
 /**
  * @author
@@ -59,6 +65,8 @@ export const CreateProduct = (props) => {
     search: "",
   });
 
+  const [totalRows, setTotalRows] = useState(0);
+
   const [Products, setProducts] = useState([]);
 
   const [popupProduct, setPopupProduct] = useState([]);
@@ -67,7 +75,7 @@ export const CreateProduct = (props) => {
   const columns = [
     {
       name: "Image",
-      selector: (row) => row.ImageUrl,
+      cell: (row) => <Image style={{ height: 50 }} src={row.ImageUrl}></Image>,
     },
     {
       name: "Name",
@@ -106,7 +114,7 @@ export const CreateProduct = (props) => {
       button: true,
       cell: (row) => (
         <div className="App">
-          <div className="openbtn text-center">
+          <div className="openbtn text-center" style={{ minWidth: 120 }}>
             <Button
               variant="primary"
               onClick={() => {
@@ -142,13 +150,17 @@ export const CreateProduct = (props) => {
     SearchAllProducts(filter).then((data) => {
       console.log(data);
       setProducts(data);
+      if (data.length > 0) {
+        setTotalRows(data[0].TotalCount);
+      } else {
+        setTotalRows(0);
+      }
     });
   };
   const [showError, setShowError] = useState(false);
   const [ErroeMassage, setErroeMassage] = useState("");
 
   const validatepopupProduct = (e) => {
-    debugger;
     setShowError(false);
 
     if (!popupProduct.Name) {
@@ -197,7 +209,11 @@ export const CreateProduct = (props) => {
       return false;
     }
 
-    CreateMyProduct(popupProduct).then((data) => {
+    var formData = new FormData();
+    formData.append("file", popupProduct.file);
+    formData.append("Product", JSON.stringify(popupProduct));
+
+    ProductMultipartSave(formData).then((data) => {
       console.log(data);
       setShowModal(false);
       getProductdata();
@@ -207,7 +223,9 @@ export const CreateProduct = (props) => {
     // console.log(CreateProduct);
   };
   const onDeleteCreateProduct = (product) => {
-    var yesorno = window.confirm("Are you sure you want to delete This Product?");
+    var yesorno = window.confirm(
+      "Are you sure you want to delete This Product?"
+    );
     if (!yesorno) {
       return;
     }
@@ -216,6 +234,25 @@ export const CreateProduct = (props) => {
       getProductdata();
     });
   };
+
+  const handleImagePreview = (e) => {
+    let image_as_base64 = URL.createObjectURL(e.target.files[0]);
+    setPopupProduct({
+      ...popupProduct,
+      ImageUrl: image_as_base64,
+      file: e.target.files[0],
+    });
+  };
+
+  const handlePageChange = (page) => {
+    setFilter({ ...filter, pageno: page });
+  };
+
+  const handlePerRowsChange = async (newPerPage, page) => {
+    setFilter({ ...filter, pageno: page, recordperpage: newPerPage });
+  };
+
+  const { ref } = useRef();
 
   return (
     <>
@@ -247,7 +284,15 @@ export const CreateProduct = (props) => {
               </Col>
             </Row>
             <br></br>
-            <DataTable columns={columns} data={Products} />
+            <DataTable
+              columns={columns}
+              data={Products}
+              pagination
+              paginationServer
+              paginationTotalRows={totalRows}
+              onChangePage={handlePageChange}
+              onChangeRowsPerPage={handlePerRowsChange}
+            />
             <Modal
               show={showModal}
               fullscreen={false}
@@ -265,6 +310,17 @@ export const CreateProduct = (props) => {
                       <Alert variant={"danger"}>{ErroeMassage}</Alert>
                     ) : null}
                     <Form onSubmit={onSubmitProduct}>
+                      <img
+                        src={popupProduct.ImageUrl}
+                        height={150}
+                        alt="image preview"
+                      />
+                      <input
+                        ref={ref}
+                        type="file"
+                        onChange={handleImagePreview}
+                      />
+
                       <Form.Group className="mb-3" controlId="formGridEmail">
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control
@@ -282,7 +338,7 @@ export const CreateProduct = (props) => {
                       <Form.Group className="mb-3" controlId="formGridEmail">
                         <Form.Label>Price</Form.Label>
                         <Form.Control
-                          type={'number'}
+                          type={"number"}
                           placeholder="Product Price"
                           value={popupProduct.Price}
                           onChange={(e) => {

@@ -1,11 +1,9 @@
 .LoginBtn {
   min-width: 81px;
   color: rgb(185, 58, 58);
-  
 }
 .ContactBtn {
   text-decoration: none;
- 
 }
 .Bgcolor {
   background-color: #d33939;
@@ -26,7 +24,8 @@
 }
 .header1 {
   /* background-color:rgb(233, 140, 175)!important */
-  background-color: rgb(215, 212, 212) !important;
+  background-color: white !important;
+  box-shadow: 0 6px 15px 0 rgb(0 0 0 / 10%);
 }
 /* .btn {
   background-color: #faf8fa !important  ;
@@ -34,3 +33,26 @@
   font-weight: 700 !important;
   border: none
 } */
+.headerboldtext {
+  font-size: 13px;
+  font-weight: 800;
+  color: black;
+  margin-top: 5px;
+}
+.CartIcon {
+  color: black;
+}
+.ProfileIcoon {
+  color: black;
+}
+.HeaderIcon {
+  color: black;
+  margin-right: 10px;
+}
+.BrandName {
+  font-size: 27px;
+  font-weight: 500;
+}
+.BrandLogo{
+  color: rgb(198, 32, 132);
+}

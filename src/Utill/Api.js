@@ -164,7 +164,10 @@ export async function GetProductByOrderId(OrderId) {
 export async function CreateMyProduct(obj) {
   var raw = JSON.stringify(obj);
   requestOptions.body = raw;
-  const req = await fetch(`${BaseUrl}/api/Product/CreateProduct`, requestOptions);
+  const req = await fetch(
+    `${BaseUrl}/api/Product/CreateProduct`,
+    requestOptions
+  );
   const data = await req.json();
   if (!req.ok) {
     throw new Error(data);
@@ -172,6 +175,25 @@ export async function CreateMyProduct(obj) {
 
   return data;
 }
+
+export async function ProductMultipartSave(formdata) {
+  var requestOptions = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow",
+  };
+  const req = await fetch(
+    `${BaseUrl}/api/Product/ProductMultipartSave`,
+    requestOptions
+  );
+  const data = await req.json();
+  if (!req.ok) {
+    throw new Error(data);
+  }
+
+  return data;
+}
+
 export async function DeleteMyProduct(ProductId) {
   const req = await fetch(
     `${BaseUrl}/api/Product/DeleteProduct?ProductId=${ProductId}`
