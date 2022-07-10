@@ -8,6 +8,7 @@ import AwesomeSlider from "react-awesome-slider";
 import img from "../../image/slider1.jpg";
 import img2 from "../../image/slider2.png";
 import img3 from "../../image/slider3.png";
+
 import Pagination from "react-bootstrap/Pagination";
 
 import "./Home.css";

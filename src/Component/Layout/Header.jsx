@@ -6,6 +6,7 @@ import {
   Form,
   FormControl,
   Button,
+  ListGroup,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Header.css";
@@ -102,11 +103,30 @@ function Header(props) {
                       <hr />
                     </div>
                     <div>
-                      <div className="MyProfileLink">Orders</div>
-                      <div className="MyProfileLink">Profile</div>
-                      <div className="MyProfileLink">Address</div>
-                      <div className="MyProfileLink">Products</div>
-                      <div className="MyProfileLink">Logout</div>
+                      <Link to={"/MyOrder"}>
+                        {" "}
+                        <div className="MyProfileLink"></div> Order
+                      </Link>
+                      <Link to={"/MyAddress"}>
+                        {" "}
+                        <div className="MyProfileLink">Address</div>
+                      </Link>
+                      <Link to={"/PersonalInformation"}>
+                        {" "}
+                        <div className="MyProfileLink">
+                          {" "}
+                          {props.user.UserType == 2 ? (
+                            <ListGroup.Item
+                              as="li"
+                              // active={SeePath("/CreateProduct")}
+                            >
+                              {" "}
+                              <Link to={"/CreateProduct"}> All Product</Link>
+                            </ListGroup.Item>
+                          ) : null}
+                        </div>
+                        Personal Information
+                      </Link>
                     </div>
                   </>
                 ) : null}
