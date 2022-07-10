@@ -116,13 +116,14 @@ function Header(props) {
                         <div className="MyProfileLink">
                           {" "}
                           {props.user.UserType == 2 ? (
-                            <ListGroup.Item
-                              as="li"
-                              // active={SeePath("/CreateProduct")}
-                            >
-                              {" "}
-                              <Link to={"/CreateProduct"}> All Product</Link>
-                            </ListGroup.Item>
+                            <Link to={"/CreateProduct"}> All Product</Link>
+                            // <ListGroup.Item
+                            //   as="li"
+                            //   // active={SeePath("/CreateProduct")}
+                            // >
+                            //   {" "}
+                              
+                            // </ListGroup.Item>
                           ) : null}
                         </div>
                         Personal Information
@@ -134,8 +135,13 @@ function Header(props) {
                   <hr />
                 </div>
                 <div>
-                  <div className="MyProfileLink"> Contact Us</div>
-                  <div className="MyProfileLink">About Us</div>
+                  <Link className="ContactBtn" to={"/ContactUs"}>
+                    <div className="MyProfileLink"> Contact Us</div>
+                  </Link>
+
+                  <Link className="ContactBtn" to={"/AbouttUs"}>
+                    <div className="MyProfileLink"> About Us</div>
+                  </Link>
                 </div>
                 {props.user ? (
                   <>

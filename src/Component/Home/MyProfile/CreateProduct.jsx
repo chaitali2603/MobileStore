@@ -264,7 +264,7 @@ export const CreateProduct = (props) => {
         <Row>
           <Col sm={2}>
             {" "}
-            <SideBar user={props.user}></SideBar>{" "}
+            {/* <SideBar user={props.user}></SideBar>{" "} */}
           </Col>
 
           <Col sm={10}>

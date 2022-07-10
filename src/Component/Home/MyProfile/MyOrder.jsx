@@ -40,9 +40,9 @@ export const MyOrder = (props) => {
         </p>
         <Row>
           <Col sm={2}>
-            <Col className="fw-bold"> {props.user ? `Hello ${props.user.FirstName}` : <></>}</Col>
+            {/* <Col className="fw-bold"> {props.user ? `Hello ${props.user.FirstName}` : <></>}</Col> */}
             <br></br>
-           <SideBar user={props.user}></SideBar>
+           {/* <SideBar user={props.user}></SideBar> */}
           </Col>
           <Col sm={10}>
             <Table striped bordered hover>

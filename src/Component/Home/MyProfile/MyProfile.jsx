@@ -45,10 +45,10 @@ export const MyProfile = (props) => {
             {" "}
             <Col className="fw-bold">
               {" "}
-              Hello {`${props.user.FirstName} ${props.user.LasttName}`}
+              {/* Hello {`${props.user.FirstName} ${props.user.LasttName}`} */}
             </Col>
             <br></br>
-            <SideBar user={props.user}></SideBar>
+            {/* <SideBar user={props.user}></SideBar> */}
           </Col>
           <Col sm={10}></Col>
         </Row>

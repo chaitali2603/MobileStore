@@ -124,11 +124,11 @@ export const MyAddress = (props) => {
       <Container>
         <Row>
           <Col sm={2}>
-            <Col className="fw-bold">
+            {/* <Col className="fw-bold">
               {props.user ? `Hello ${props.user.FirstName}` : <></>}
-            </Col>
+            </Col> */}
             <br></br>
-            <SideBar user={props.user}></SideBar>
+            {/* <SideBar user={props.user}></SideBar> */}
           </Col>
 
           <Col sm={10}>
