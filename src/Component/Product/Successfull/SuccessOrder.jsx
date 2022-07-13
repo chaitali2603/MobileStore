@@ -16,6 +16,13 @@ export const SuccessOrder = (props) => {
 
   return (
     <>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <br></br>
+
       <Container>
         <Row>
           <Col>
@@ -64,6 +71,12 @@ export const SuccessOrder = (props) => {
         <br></br>
         <br></br>
       </Container>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
     </>
   );
 };

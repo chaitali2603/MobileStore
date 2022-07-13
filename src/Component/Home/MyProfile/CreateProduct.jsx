@@ -256,18 +256,21 @@ export const CreateProduct = (props) => {
 
   return (
     <>
+    <br></br>
+    <br></br>
+
       <Container>
         <h1 className="SuccessMargin">All Products </h1>
         <p>
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
         <Row>
-          <Col sm={2}>
+          <Col sm={0}>
             {" "}
             {/* <SideBar user={props.user}></SideBar>{" "} */}
           </Col>
 
-          <Col sm={10}>
+          <Col sm={12}>
             <Row>
               <Col>
                 <Button
@@ -431,7 +434,7 @@ export const CreateProduct = (props) => {
 
                       <Modal.Footer>
                         <Button type={"submit"} variant="primary">
-                          Save changes
+                          Create changes
                         </Button>
                       </Modal.Footer>
                     </Form>

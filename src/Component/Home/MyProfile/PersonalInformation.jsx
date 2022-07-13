@@ -82,14 +82,22 @@ export const PersonalInformation = (props) => {
 
   return (
     <>
-      <Container>
+    <br></br>
+    <br></br>
+    <br></br>
+   
+
+
+     
         <h1 className="SuccessMargin">Personal Information</h1>
+        <br></br>
+    <br></br>
         <p>
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
-
+        <Container>
         <Row>
-          <Col sm={2}>
+          <Col sm={0}>
             {/* <Col className="fw-bold">
               {" "}
               {props.user ? `Welcom ${props.user.FirstName}` : <></>};
@@ -99,7 +107,7 @@ export const PersonalInformation = (props) => {
             {/* <SideBar user={props.user}></SideBar> */}
           </Col>
 
-          <Col sm={10}>
+          <Col sm={12}>
             {showError ? (
               <Alert variant={"danger"}>{ErroeMassage}</Alert>
             ) : null}
@@ -174,6 +182,13 @@ export const PersonalInformation = (props) => {
           <Col></Col>
         </Row>
       </Container>
+      <br></br>
+      <br></br>
+      <br></br>    <br></br>
+
+      <br></br>
+
+
     </>
   );
 };

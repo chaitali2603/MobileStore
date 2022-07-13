@@ -89,11 +89,16 @@ export const SignUp = (props) => {
 
   return (
     <>
+      <br></br>
+      <br></br>
+      <br></br>
+
+
       <h1>Sign UP</h1>
       <p>Fill in this form to create an account </p>
       <Container>
         <Row>
-        <Col></Col>
+          <Col></Col>
           <Col>
             {showError ? (
               <Alert variant={"danger"}>{ErroeMassage}</Alert>
@@ -195,6 +200,9 @@ export const SignUp = (props) => {
           </Col>
           <Col></Col>
         </Row>
+        <br></br>
+        <br></br>
+        <br></br>
       </Container>
     </>
   );

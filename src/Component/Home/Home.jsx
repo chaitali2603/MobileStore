@@ -6,8 +6,8 @@ import React, { useState, useEffect } from "react";
 import { SearchAllProducts } from "../../Utill/Api";
 import AwesomeSlider from "react-awesome-slider";
 import img from "../../image/slider1.jpg";
-import img2 from "../../image/slider2.png";
-import img3 from "../../image/slider3.png";
+import img2 from "../../image/slider2.jpg";
+import img3 from "../../image/slider3.jpg";
 
 import Pagination from "react-bootstrap/Pagination";
 

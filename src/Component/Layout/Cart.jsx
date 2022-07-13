@@ -63,6 +63,12 @@ export const Cart = (props) => {
   if (!cartProducts || cartProducts.length == 0)
     return (
       <>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+
         <Container>
           <Row>
             <Col>
@@ -107,6 +113,13 @@ export const Cart = (props) => {
           <br></br>
           <br></br>
         </Container>
+        <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+
       </>
     );
   return (
@@ -128,8 +141,8 @@ export const Cart = (props) => {
             </div>
             <div>
               <Row>
-                <Col sm={2}></Col>
-                <Col sm={10}>
+                
+                <Col sm={12}>
                   {" "}
                   <table className="table table-light table-hover m-0">
                     <tbody>

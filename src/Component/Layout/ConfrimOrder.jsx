@@ -99,6 +99,10 @@ export const ConfrimOrder = (props) => {
 
   return (
     <>
+    <br></br>
+    <br></br>
+    <br></br>
+    
       <div>
         <Container>
           <Table striped bordered hover>
@@ -197,6 +201,8 @@ export const ConfrimOrder = (props) => {
           <br></br>
         </Container>
       </div>
+      <br></br>
+
     </>
   );
 };

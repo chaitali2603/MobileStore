@@ -24,7 +24,7 @@ function Header(props) {
             <MdMobileFriendly size={30} className="BrandLogo" />
           </Link>
         </Navbar.Brand>
-        <div className="BrandName">Mobile Carts</div>
+        <div className="BrandName">Sawariya Mobile Cart</div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -115,19 +115,14 @@ function Header(props) {
                         {" "}
                         <div className="MyProfileLink">
                           {" "}
-                          {props.user.UserType == 2 ? (
-                            <Link to={"/CreateProduct"}> All Product</Link>
-                            // <ListGroup.Item
-                            //   as="li"
-                            //   // active={SeePath("/CreateProduct")}
-                            // >
-                            //   {" "}
-                              
-                            // </ListGroup.Item>
-                          ) : null}
+                          Personal Information
                         </div>
-                        Personal Information
                       </Link>
+                      {props.user.UserType == 2 ? (
+                        <Link to={"/CreateProduct"}>
+                          <div className="MyProfileLink">All Product</div>
+                        </Link>
+                      ) : null}
                     </div>
                   </>
                 ) : null}
@@ -139,7 +134,7 @@ function Header(props) {
                     <div className="MyProfileLink"> Contact Us</div>
                   </Link>
 
-                  <Link className="ContactBtn" to={"/AbouttUs"}>
+                  <Link className="ContactBtn" to={"/AboutUs"}>
                     <div className="MyProfileLink"> About Us</div>
                   </Link>
                 </div>
