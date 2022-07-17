@@ -38,7 +38,7 @@ export const Product = (props) => {
             <div>{props.product.Battery}</div>
             <div>{props.product.Brand}</div>
             <div>
-              {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> {props.product.Price}</span>:null}
+              {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{props.product.Price}</div></span>:null}
               {GetdiscountedPrice()}
             </div>
           </Card.Text>
