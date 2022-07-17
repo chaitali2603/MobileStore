@@ -47,15 +47,18 @@ export const Login = (props) => {
     setLoginForm({ ...LoginForm, Password: e.target.value });
   };
   return (
+    
     // url(${Background})
+    <>
     <div className="loginstyle" style={{ backgroundImage: `url(${img})` }}>
       <div class="bg-overlay doctris-overlay"></div>
       <Container>
         <Row>
-          <Col sm={4}>
+        <Col sm={2}></Col>
+          <Col sm={5}>
             <Card className="logincard">
               <h4 style={{ fontWeight: 600 }} class="text-center">
-                Provider Login
+                 Log In
               </h4>
 
               {showError ? (
@@ -65,7 +68,7 @@ export const Login = (props) => {
               <Form onSubmit={onSubmitLogin}>
                 <Row>
                   <Form.Group className="mb-3" controlId="formPlaintextEmail">
-                    <Form.Label column sm="2">
+                    <Form.Label style={{fontWeight:'bold'}}  column sm="2">
                       Email
                     </Form.Label>
                     <Col sm="12">
@@ -83,7 +86,7 @@ export const Login = (props) => {
                     className="mb-3"
                     controlId="formPlaintextPassword"
                   >
-                    <Form.Label column sm="6">
+                    <Form.Label style={{fontWeight:'bold'}} column sm="6">
                       Password
                     </Form.Label>
                     <Col sm="12">
@@ -126,16 +129,24 @@ export const Login = (props) => {
                       <Link className="Linkwrapera" to={"/SignUP"}>
                         <span style={{ fontWeight: "600" }}> Sign Up</span>
                       </Link>
+                      <br></br>
+    <br></br>
                     </div>
                   </Col>
                 </Row>
               </Form>
             </Card>
           </Col>
-          <Col sm={4}></Col>
-          <Col sm={4}></Col>
+          
+
+          
+          <Col sm={5}></Col>
+           <br></br>
+            <br></br>
         </Row>
       </Container>
     </div>
+   
+    </>
   );
 };

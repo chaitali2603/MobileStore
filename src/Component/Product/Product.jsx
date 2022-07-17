@@ -9,6 +9,16 @@ import noImage from "../../image/noimage.jpg";
 
 export const Product = (props) => {
   console.log(props);
+
+  const GetdiscountedPrice = () => {
+    if (!props.product || !props.product.Disscount) {
+      return props.product.Price;
+    }
+
+    return (
+      props.product.Price - (props.product.Price * props.product.Disscount) / 100
+    );
+  };
   return (
     <>
       <Card className="Boxes">
@@ -19,7 +29,7 @@ export const Product = (props) => {
         <Card.Body className="cardclr">
           <Card.Title>
             <Link to={`/Product/${props.product.Id}`}>
-              {props.product.Name}
+              {props.product.ModelName}
             </Link>
           </Card.Title>
           <Card.Text>
@@ -27,18 +37,21 @@ export const Product = (props) => {
             <div>{props.product.DisplaySize}</div>
             <div>{props.product.Battery}</div>
             <div>{props.product.Brand}</div>
-            <div>{props.product.Price}</div>
+            <div>
+              {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> {props.product.Price}</span>:null}
+              {GetdiscountedPrice()}
+            </div>
           </Card.Text>
           <>
-          <Button
-                onClick={() => {
-                  props.onAddCart(props.product);
-                }}
-                variant="outline-primary"
-                size="md"
-              >
-                Add to Cart
-              </Button>
+            <Button
+              onClick={() => {
+                props.onAddCart(props.product);
+              }}
+              variant="outline-primary"
+              size="md"
+            >
+              Add to Cart
+            </Button>
           </>
         </Card.Body>
       </Card>

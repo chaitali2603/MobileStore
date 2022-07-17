@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Button } from "react-bootstrap";
 import { GetProductById } from "../../Utill/Api";
 
 import {
@@ -43,37 +43,65 @@ export const ProductDetail = (props) => {
 
   return (
     <>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+
       <div>
         <Row>
           <Col sm={5}>
             <Row>
               <Col>
                 {" "}
-                image <Image src={productDetail?.ImageUrl}></Image>
+                <Image src={productDetail?.ImageUrl}></Image>
               </Col>
             </Row>
             <Row>
-              <Col> Add TO Cart Button </Col>
-              <Col> Buy Button </Col>
+              <Col>
+                {" "}
+                <Button
+                  onClick={() => {
+                    props.onAddCart(props.product);
+                  }}
+                  variant="outline-primary"
+                  size="md"
+                >
+                  Add to Cart
+                </Button>
+              </Col>
+              <Col> <Link to={"/ConfrimOrder"}>
+                <Button> Buy Now</Button>
+              </Link></Col>
             </Row>
           </Col>
           <Col sm={7}>
             <Row>
-              <Col>Name</Col>
+              <Col>Name: {productDetail.Brand}</Col>
             </Row>
             <Row>
-              <Col>Price {productDetail.Price}</Col>
+              <Col>Price: {productDetail.Price}</Col>
             </Row>
             <Row>
-              <Col>Discription {productDetail.Discription}</Col>
+              <Col>Discription: {productDetail.Discription}</Col>
             </Row>
             <Row>
-              <Col>Colour {productDetail.Colour}</Col>
+              <Col>Colour: {productDetail.Colour}</Col>
             </Row>
             <Row></Row>
           </Col>
         </Row>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </>
   );
 };

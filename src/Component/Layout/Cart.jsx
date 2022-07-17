@@ -153,10 +153,10 @@ export const Cart = (props) => {
                               <img
                                 src={item.ImageUrl}
                                 className="img-cart"
-                                alt={item.Name}
+                                alt={item.ModelName}
                               />
                             </td>
-                            <td>{item.Name}</td>
+                            <td>{item.ModelName}</td>
                             <td>{item.Price}</td>
                             <td>Quantity: {item.Qty} </td>
                             <td>{item.Qty * item.Price} </td>

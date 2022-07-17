@@ -24,7 +24,7 @@ function Header(props) {
             <MdMobileFriendly size={30} className="BrandLogo" />
           </Link>
         </Navbar.Brand>
-        <div className="BrandName">Sawariya Mobile Cart</div>
+        <div className="BrandName">Sawariya Mobile </div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

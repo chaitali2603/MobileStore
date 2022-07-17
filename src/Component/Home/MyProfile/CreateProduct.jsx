@@ -256,8 +256,8 @@ export const CreateProduct = (props) => {
 
   return (
     <>
-    <br></br>
-    <br></br>
+      <br></br>
+      <br></br>
 
       <Container>
         <h1 className="SuccessMargin">All Products </h1>
@@ -265,10 +265,7 @@ export const CreateProduct = (props) => {
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
         <Row>
-          <Col sm={0}>
-            {" "}
-            {/* <SideBar user={props.user}></SideBar>{" "} */}
-          </Col>
+          <Col sm={0}> {/* <SideBar user={props.user}></SideBar>{" "} */}</Col>
 
           <Col sm={12}>
             <Row>
@@ -304,7 +301,7 @@ export const CreateProduct = (props) => {
               }}
             >
               <Modal.Header closeButton>
-                <Modal.Title>Modal</Modal.Title>
+                <Modal.Title>Model</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 <Row>
@@ -412,6 +409,33 @@ export const CreateProduct = (props) => {
                         <option value="Symbian">Symbian</option>
                         <option value="Tizen">Tizen</option>
                       </Form.Select>
+
+                      <Form.Label> Manufacturing Year</Form.Label>
+                      <Form.Control
+                        type="Text"
+                        placeholder="Manufacture Year"
+                        value={popupProduct.ManufactureYear}
+                        onChange={(e) => {
+                          setPopupProduct({
+                            ...popupProduct,
+                            ManufactureYear: e.target.value,
+                          });
+                        }}
+                      />
+
+                      <Form.Label> Warranty Period</Form.Label>
+                      <Form.Control
+                        type="Text"
+                        placeholder="Warranty Period
+                        "
+                        value={popupProduct.WarrantyPeriod}
+                        onChange={(e) => {
+                          setPopupProduct({
+                            ...popupProduct,
+                            WarrantyPeriod: e.target.value,
+                          });
+                        }}
+                      />
 
                       <Form.Label>Description</Form.Label>
                       <FloatingLabel
