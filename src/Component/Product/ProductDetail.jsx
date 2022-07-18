@@ -80,16 +80,13 @@ export const ProductDetail = (props) => {
           </Col>
           <Col sm={7}>
             <Row>
-              <Col>Name: {productDetail.Brand}</Col>
+              <Col>{productDetail.ModelName}</Col>
             </Row>
             <Row>
               <Col>Price: {productDetail.Price}</Col>
             </Row>
             <Row>
-              <Col>Discription: {productDetail.Discription}</Col>
-            </Row>
-            <Row>
-              <Col>Colour: {productDetail.Colour}</Col>
+              <Col>Discription: {productDetail.Description}</Col>
             </Row>
             <Row></Row>
           </Col>

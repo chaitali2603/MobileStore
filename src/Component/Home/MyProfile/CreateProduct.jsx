@@ -78,30 +78,21 @@ export const CreateProduct = (props) => {
       cell: (row) => <Image style={{ height: 50 }} src={row.ImageUrl}></Image>,
     },
     {
-      name: "Name",
-      selector: (row) => row.Name,
+      name: "ModelName",
+      selector: (row) => row.ModelName,
     },
     {
       name: "Price",
       selector: (row) => row.Price,
     },
     {
-      name: "Disscount",
-      selector: (row) => row.Disscount,
-    },
-    {
       name: "Brand",
       selector: (row) => row.Brand,
-    },
-    {
-      name: "Storage",
-      selector: (row) => row.Storage,
     },
     {
       name: "RAM",
       selector: (row) => row.RAM,
     },
-
     {
       name: "Description",
       selector: (row) => row.Description,
@@ -163,7 +154,7 @@ export const CreateProduct = (props) => {
   const validatepopupProduct = (e) => {
     setShowError(false);
 
-    if (!popupProduct.Name) {
+    if (!popupProduct.ModelName) {
       console.log("Product Name  is Blank");
       setErroeMassage("Please enter Product Name");
       setShowError(true);
@@ -219,8 +210,7 @@ export const CreateProduct = (props) => {
       getProductdata();
       alert("Product saved");
     });
-    // return false;
-    // console.log(CreateProduct);
+   
   };
   const onDeleteCreateProduct = (product) => {
     var yesorno = window.confirm(
@@ -324,13 +314,13 @@ export const CreateProduct = (props) => {
                       <Form.Group className="mb-3" controlId="formGridEmail">
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control
-                          type="Fname"
+                          type="Text"
                           placeholder="Product Name"
-                          value={popupProduct.Name}
+                          value={popupProduct.ModelName}
                           onChange={(e) => {
                             setPopupProduct({
                               ...popupProduct,
-                              Name: e.target.value,
+                              ModelName: e.target.value,
                             });
                           }}
                         />
