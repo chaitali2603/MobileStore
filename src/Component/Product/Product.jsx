@@ -38,7 +38,11 @@ export const Product = (props) => {
             <div>{props.product.Battery}</div>
             <div>{props.product.Brand}</div>
             <div>
+<<<<<<< Updated upstream
               {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{props.product.Price}</div></span>:null}
+=======
+              {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"><div>{props.product.Price}</div></span>:null}
+>>>>>>> Stashed changes
               {GetdiscountedPrice()}
             </div></b>
           </Card.Text>
