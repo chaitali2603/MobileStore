@@ -43,7 +43,7 @@ export const Filter = (props) => {
           />
         </div>
 
-            
+        <b>   
         <Slider
           onChangeSlider={(val) => {
             setFilter({ ...filter, Price: val });
@@ -53,7 +53,7 @@ export const Filter = (props) => {
         >
           {" "}
         </Slider>
-          
+        </b>  
         <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header><b>RAM</b></Accordion.Header>
