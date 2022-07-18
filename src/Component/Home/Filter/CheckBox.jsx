@@ -39,7 +39,7 @@ export const CheckBox = (props) => {
               id="flexCheckDefault"
             />
 
-            <label className="form-check-label">{item.name}</label>
+            <b><label className="form-check-label">{item.name}</label></b>
           </div>
         );
       })}

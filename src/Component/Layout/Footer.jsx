@@ -8,12 +8,12 @@ function Footer() {
         <Card.Body style={{padding :0}}>
           <div>
           <Link className="ContactBtn" to={"/ContactUs"}>
-            <span>Contact Us</span>
+          <b><span>Contact Us</span></b>
           </Link>
           </div>
           <div>
           <Link className="ContactBtn" to={"/AboutUs"}>
-              <span>About Us</span>
+          <b><span>About Us</span></b>
             </Link>
           </div>
           

@@ -106,7 +106,6 @@ export const Cart = (props) => {
               <Link to={"/"}>
                 <Button variant="light">Add Item from Home</Button>{" "}
               </Link>{" "}
-              
             </Col>
             <Col></Col>
           </Row>
@@ -119,7 +118,6 @@ export const Cart = (props) => {
      <br></br>
      <br></br>
      <br></br>
-
       </>
     );
   return (

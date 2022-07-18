@@ -33,14 +33,14 @@ export const Product = (props) => {
             </Link>
           </Card.Title>
           <Card.Text>
-            <div>RAM - {props.product.RAM}</div>
+            <b><div>RAM - {props.product.RAM}</div>
             <div>{props.product.DisplaySize}</div>
             <div>{props.product.Battery}</div>
             <div>{props.product.Brand}</div>
             <div>
               {props.product.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{props.product.Price}</div></span>:null}
               {GetdiscountedPrice()}
-            </div>
+            </div></b>
           </Card.Text>
           <>
             <Button
