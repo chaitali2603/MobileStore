@@ -255,10 +255,22 @@ export const CreateProduct = (props) => {
           _____________________________________________________________________________________________________________________________________________________________________________________________
         </p>
         <Row>
-          <Col sm={0}> {/* <SideBar user={props.user}></SideBar>{" "} */}</Col>
-
+          <Col sm={0}></Col>
           <Col sm={12}>
             <Row>
+              <Col>
+              <div className="input-group rounded">
+          <input
+            type="search"
+            className="form-control rounded"
+            placeholder="Search"
+            aria-label="Search"
+            onChange={(e) => {
+              setFilter({ ...filter, search: e.target.value });
+            }}
+            aria-describedby="search-addon"
+          />
+        </div></Col>
               <Col>
                 <Button
                   onClick={() => {
