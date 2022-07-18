@@ -11,9 +11,26 @@ export const AboutUs
  = (props) => {
   return(
     <>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <b><div>
+      Connect With Us
+    </div></b>
     <div>
-      About us
+      Facebook
     </div>
+    <div>
+      Twitter
+    </div>
+    <div>
+      Instagram
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     </>
    )
   }
