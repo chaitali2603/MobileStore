@@ -68,7 +68,7 @@ export const Filter = (props) => {
           </Accordion.Item>
 
           <Accordion.Item eventKey="1">
-            <Accordion.Header>Brand</Accordion.Header>
+            <Accordion.Header><b>Brand</b></Accordion.Header>
             <Accordion.Body>
               <CheckBox
                 items={filter.Brand}
@@ -80,7 +80,7 @@ export const Filter = (props) => {
           </Accordion.Item>
 
           <Accordion.Item eventKey="2">
-            <Accordion.Header>Internal Storage</Accordion.Header>
+            <Accordion.Header><b>Internal Storage</b></Accordion.Header>
             <Accordion.Body>
               <CheckBox
                 items={filter.internalStorage}
@@ -92,7 +92,7 @@ export const Filter = (props) => {
           </Accordion.Item>
 
           <Accordion.Item eventKey="3">
-            <Accordion.Header>Operating System</Accordion.Header>
+            <Accordion.Header><b>Operating System</b></Accordion.Header>
             <Accordion.Body>
               <CheckBox
                 items={filter.OpratingSystem}
