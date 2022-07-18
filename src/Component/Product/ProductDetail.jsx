@@ -46,11 +46,6 @@ export const ProductDetail = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-
       <div>
         <Row>
           <Col sm={5}>
@@ -73,25 +68,30 @@ export const ProductDetail = (props) => {
                   Add to Cart
                 </Button>
               </Col>
-              <Col> <Link to={"/ConfrimOrder"}>
-                <Button> Buy Now</Button>
-              </Link></Col>
+              <Col>
+                <Link to={"/ConfrimOrder"}>
+                  <Button> Buy Now</Button>
+                </Link>
+              </Col>
             </Row>
           </Col>
           <Col sm={7}>
             <Row>
-              <Col>{productDetail.ModelName}</Col>
+              <Col><h1><b>{productDetail.ModelName}</b></h1></Col>
             </Row>
+            <br></br>
             <Row>
             <div>{productDetail.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{productDetail.Price}</div></span>:null}
             </div>
-            <Col>Discount: {productDetail.Disscount}%</Col>
+            <Col><b>Discount: {productDetail.Disscount}%</b></Col>
             </Row>
+            <br></br>
             <Row>
-            <Col>Price: {productDetail.Price}</Col>
+            <Col><b>Price: {productDetail.Price}</b></Col>
             </Row>
+            <br></br>
             <Row>
-              <Col>Discription: {productDetail.Description}</Col>
+              <Col><b>Discription: {productDetail.Description}</b></Col>
             </Row>
             <Row></Row>
           </Col>
