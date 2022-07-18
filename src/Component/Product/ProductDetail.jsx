@@ -83,7 +83,12 @@ export const ProductDetail = (props) => {
               <Col>{productDetail.ModelName}</Col>
             </Row>
             <Row>
-              <Col>Price: {productDetail.Price}</Col>
+            <div>{productDetail.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{productDetail.Price}</div></span>:null}
+            </div>
+            <Col>Discount: {productDetail.Disscount}%</Col>
+            </Row>
+            <Row>
+            <Col>Price: {productDetail.Price}</Col>
             </Row>
             <Row>
               <Col>Discription: {productDetail.Description}</Col>
@@ -95,10 +100,7 @@ export const ProductDetail = (props) => {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      
     </>
   );
 };
