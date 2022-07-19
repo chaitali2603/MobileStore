@@ -32,26 +32,8 @@ function Header(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            {/* {props.user ? (
-              <Navbar.Brand
-                onClick={() => {
-                  localStorage.removeItem("Token");
-                  window.location.reload();
-                }}
-              >
-                Log Out
-              </Navbar.Brand>
-            ) : null} */}
           </Nav>
           <Form className="d-flex">
-            {/* <br></br>
-            {props.user ? (
-              `Welcome ${props.user.FirstName}`
-            ) : (
-              <Link className="LoginBtn" to={"/Login"}>
-                <Button>Log in</Button>
-              </Link>
-            )} */}
 
             <Form.Control
               type="search"
@@ -59,14 +41,7 @@ function Header(props) {
               className="me-2 SearchBox"
               aria-label="Search"
             />
-            {/* <div className="HeaderIcon">
-              <Link to={"/PersonalInformation"}>
-                <div className="Headericonalign">
-                  <IoPersonOutline size={30} className="ProfileIcoon" />{" "}
-                  <div className="headerboldtext">Profile</div>
-                </div>
-              </Link>
-            </div> */}
+            
             <div className="dropdown">
               <div className="HeaderIcon">
                 <Link to={"/PersonalInformation"}>

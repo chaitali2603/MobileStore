@@ -52,23 +52,15 @@ function Layout() {
             <>
               <Route path="MyProfile" element={<MyProfile user={user} />} />
               <Route path="MyAccount" element={<MyAccount user={user} />} />
-              <Route
-                path="PersonalInformation"
-                element={<PersonalInformation user={user} />}
-              />
+              <Route path="PersonalInformation"
+                element={<PersonalInformation user={user} />} />
               <Route path="MyOrder" element={<MyOrder user={user} />} />
               <Route path="MyAddress" element={<MyAddress user={user} />} />
               <Route path="ConfrimOrder" element={<ConfrimOrder />} />
               <Route path="/Order/:OrderId" element={<OrderDetails />} />
-              <Route
-                path="OrderDetails"
-                element={<OrderDetails user={user} />}
-              />
+              <Route path="OrderDetails" element={<OrderDetails user={user} />} />
               <Route path="SuccessOrder/:OrderId" element={<SuccessOrder />} />
-              <Route
-                path="CreateProduct"
-                element={<CreateProduct user={user} />}
-              />
+              <Route path="CreateProduct" element={<CreateProduct user={user} />} />
             </>
           ) : null}
         </Routes>

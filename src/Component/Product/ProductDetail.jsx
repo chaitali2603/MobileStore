@@ -55,7 +55,7 @@ export const ProductDetail = (props) => {
     <>
       <br></br>
       <br></br>
-      <br></br>
+      <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       <div>
         <Row>
           <Col sm={5}>
@@ -68,13 +68,8 @@ export const ProductDetail = (props) => {
             <Row>
               <Col>
                 {" "}
-                <Button
-                  onClick={() => {
-                    props.onAddCart(props.product);
-                  }}
-                  variant="outline-primary"
-                  size="md"
-                >
+                <Link to={"/Cart"}></Link>
+                <Button>
                   Add to Cart
                 </Button>
               </Col>
@@ -92,7 +87,7 @@ export const ProductDetail = (props) => {
             </Row>            
             <br></br>
             <Row>
-            <Col><b>Price: </b>{productDetail.Price} with {productDetail.Disscount}% Discount</Col>
+              <Col><b>Price: </b>{productDetail.Price} with {productDetail.Disscount}% Discount</Col>
             </Row>
             <br></br>
             <Row>
@@ -100,31 +95,30 @@ export const ProductDetail = (props) => {
             </Row><br></br><br></br><br></br>
             
             <Col sm={6}>
-            <Row>
-            <Col>
-              <div className="image">
-              <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png" />  
-              </div>
-              <div class="a-section a-spacing-none icon-content"> 7 Days Replacement </div>
-            </Col>
-            <Col>
-              <div className="image">
-              <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png" />  
-              </div>
-              <div class="a-section a-spacing-none icon-content"> 1 Year Warranty </div>
-            </Col>
-            <Col>
-              <div className="image">
-              <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/No_contact_delivery_final._CB432269791_.png" />  
-              </div>
-              <div class="a-section a-spacing-none icon-content"> Product Delivered</div>
-            </Col>
-            </Row>
+              <Row>
+                <Col>
+                  <div className="image">
+                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png" />  
+                  </div>
+                  <div class="a-section a-spacing-none icon-content"> 7 Days Replacement </div>
+                </Col>
+                <Col>
+                  <div className="image">
+                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png" />  
+                  </div>
+                  <div class="a-section a-spacing-none icon-content"> 1 Year Warranty </div>
+                </Col>
+                <Col>
+                  <div className="image">
+                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/No_contact_delivery_final._CB432269791_.png" />  
+                  </div>
+                  <div class="a-section a-spacing-none icon-content"> Product Delivered</div>
+                </Col>
+              </Row>
             </Col>
           </Col>
         </Row>
-      </div>
-      <br></br><br></br><br></br>  
+      </div> 
     </>
   );
 };

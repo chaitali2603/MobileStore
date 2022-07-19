@@ -139,7 +139,6 @@ export const Cart = (props) => {
             </div>
             <div>
               <Row>
-                
                 <Col sm={12}>
                   {" "}
                   <table className="table table-light table-hover m-0">
@@ -155,9 +154,9 @@ export const Cart = (props) => {
                               />
                             </td>
                             <td>{item.ModelName}</td>
-                            <td>{item.Price}</td>
+                            <td>{item.Price} Rs. </td>
                             <td>Quantity: {item.Qty} </td>
-                            <td>{item.Qty * item.Price} </td>
+                            <td>{item.Qty * item.Price} Rs. </td>
                             <td>
                               <button
                                 onClick={() =>
