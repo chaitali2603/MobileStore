@@ -96,9 +96,7 @@ export const ProductDetail = (props) => {
               <table className="table-center table-light table-hover m-0">
                 <tr>
                   <th>
-                    
                       <h1><b>{productDetail.ModelName}</b></h1>
-                  
                     <br></br>
                   </th>
                 </tr>
@@ -116,10 +114,9 @@ export const ProductDetail = (props) => {
                   <tr>
                   <td>
                   <b>Price: </b>
-                  </td>
-                  <td>{productDetail.Price} with {productDetail.Disscount}% Discount</td>
+                  {productDetail.Price} with {productDetail.Disscount}% Discount</td>
                   </tr>
-                  <br></br>
+                  <br></br><br></br>
                   
                     <tr>
                     <td>
