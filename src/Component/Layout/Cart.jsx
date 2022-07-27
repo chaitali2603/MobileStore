@@ -63,11 +63,11 @@ export const Cart = (props) => {
   if (!cartProducts || cartProducts.length == 0)
     return (
       <>
-     <br></br>
-     <br></br>
-     <br></br>
-     <br></br>
-     <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
 
         <Container>
           <Row>
@@ -113,11 +113,11 @@ export const Cart = (props) => {
           <br></br>
         </Container>
         <br></br>
-     <br></br>
-     <br></br>
-     <br></br>
-     <br></br>
-     <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </>
     );
   return (
@@ -126,36 +126,43 @@ export const Cart = (props) => {
         <div className="row justify-content-center">
           <h4 className="text-center">My Cart</h4>
           <div className="col-sm-12 col-lg-8 col-xl-8 py-4">
-            <div className="d-flex justify-content-center py-3">
-              <div className="position-relative fw-bolder text-title fs-5">
-                Cart{" "}
-              </div>
-              <div className="fw-bolder text-title fs-5">
-                Total Items{" "}
-                <span className="position-absolute translate-middle rounded-pill badge bg-success mx-1">
-                  {cartProducts.length}
-                </span>
-              </div>
+            <div className="fw-bolder text-title fs-5">
+              Total Items{" "}
+              <span className="position-absolute translate-middle rounded-pill badge bg-success mx-1">
+                {cartProducts.length}
+              </span>
             </div>
+            <br></br><br></br>
             <div>
               <Row>
                 <Col sm={12}>
                   {" "}
                   <table className="table table-light table-hover m-0">
+                    <tr>
+                      <th> Image</th>
+                      <th> Model</th>
+                      <th> Price</th>
+                      <th> Quantity</th>
+                      <th> Total</th>
+                    </tr>
                     <tbody>
                       {cartProducts.map((item, index) => {
                         return (
+
                           <tr key={index} className="align-middle">
+
                             <td>
                               <img
+                                width={220}
+                                height={220}
                                 src={item.ImageUrl}
                                 className="img-cart"
                                 alt={item.ModelName}
                               />
                             </td>
-                            <td>{item.ModelName}</td>
+                            <td>{item.ModelName} </td>
                             <td>{item.Price} Rs. </td>
-                            <td>Quantity: {item.Qty} </td>
+                            <td>{item.Qty} </td>
                             <td>{item.Qty * item.Price} Rs. </td>
                             <td>
                               <button
@@ -175,6 +182,8 @@ export const Cart = (props) => {
                               >
                                 +
                               </button>
+                            </td>
+                            <td>
                               <button
                                 onClick={() => removeCart(item)}
                                 className="btn btn-outline-danger mx-5"

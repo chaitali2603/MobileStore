@@ -191,6 +191,18 @@ export const CreateProduct = (props) => {
       setShowError(true);
       return false;
     }
+    if (!popupProduct.ManufactureYear) {
+      console.log("Manufacture Year  is Blank");
+      setErroeMassage("Please enter Manufacture Year ");
+      setShowError(true);
+      return false;
+    }
+    if (!popupProduct.WarrantyPeriod) {
+      console.log("WarrantyPeriod  is Blank");
+      setErroeMassage("Please enter WarrantyPeriod ");
+      setShowError(true);
+      return false;
+    }
     return true;
   };
 
@@ -325,7 +337,7 @@ export const CreateProduct = (props) => {
                       />
 
                       <Form.Group className="mb-3" controlId="formGridEmail">
-                        <Form.Label>Product Name</Form.Label>
+                        <Form.Label>Model Name</Form.Label>
                         <Form.Control
                           type="Text"
                           placeholder="Product Name"

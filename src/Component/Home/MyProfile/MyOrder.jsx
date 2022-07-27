@@ -62,7 +62,7 @@ export const MyOrder = (props) => {
                     <tr>
                       <td>{index + 1}</td>
                       <td>{x.FirstName}</td>
-                      <td>{x.LasttName}</td>
+                      <td>{x.LastName}</td>
                       <td>{x.Id}</td>
                       <td>{convertDate(x.CreatedDate)}</td>
                       <td>

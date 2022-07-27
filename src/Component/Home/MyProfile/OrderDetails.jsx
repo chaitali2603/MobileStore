@@ -41,49 +41,49 @@ export const OrderDetails = (props) => {
 
   return (
     <>
-    <Container>
-    
+      <Container>
+
         <h1 className="SuccessMargin">Order Details</h1>
         <p>
           __________________________________________________________________________________________________________________________________________________________________________________________________
         </p>
-      <Row>
-        <Col sm={2}>
-          {" "}
-          {/* <Col className="fw-bold"> {props.user ? `Welcom ${props.user.FirstName}` : <></>};</Col> */}
-          <br></br>
-          {/* <SideBar user={props.user}></SideBar> */}
-        </Col>
-        <Col sm={10}>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <td>#</td>
-                <td>Product Id</td>
-                <td>Price</td>
-                <td>Order Id</td>
-                <td>Order date</td>
-                <td>Address</td>
-              </tr>
-            </thead>
+        <Row>
+          <Col sm={2}>
+            {" "}
+            {/* <Col className="fw-bold"> {props.user ? `Welcom ${props.user.FirstName}` : <></>};</Col> */}
+            <br></br>
+            {/* <SideBar user={props.user}></SideBar> */}
+          </Col>
+          <Col sm={10}>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <td>Sr.no.</td>
+                  <td>Product Name</td>
+                  <td>Price</td>
+                  <td>Order Id</td>
+                  <td>Order date</td>
+                  <td>Address</td>
+                </tr>
+              </thead>
 
-            <tbody>
-              {AllOrderDetails.map((x, index) => {
-                return (
-                  <tr>
-                    <td>{index + 1}</td>
-                    <td>{x.ProductName}</td>
-                    <td>{x.Price}</td>
-                    <td>{x.OrderId}</td>
-                    <td>{convertDate(x.CreatedDate)}</td>
-                    <td>{x.Address}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
-        </Col>
-      </Row>
+              <tbody>
+                {AllOrderDetails.map((x, index) => {
+                  return (
+                    <tr>
+                      <td>{index + 1}</td>
+                      <td>{x.ProductName}</td>
+                      <td>{x.Price}</td>
+                      <td>{x.OrderId}</td>
+                      <td>{convertDate(x.CreatedDate)}</td>
+                      <td>{x.Address}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
       </Container>
     </>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Row, Col, Image, Button } from "react-bootstrap";
+import { Row, Col, Image, Button, Container } from "react-bootstrap";
 import { GetProductById } from "../../Utill/Api";
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,15 +17,15 @@ import { useEffect } from "react";
 export const ProductDetail = (props) => {
   let { productId } = useParams();
 
-  /* console.log(props);
+  console.log(props);
   const GetdiscountedPrice = () => {
-    if (!props.ProductDetail || !props.ProductDetail.Disscount) {
-      return props.ProductDetail.Price;
+    if (!props.productDetail || !props.productDetail.Disscount) {
+      return props.productDetail.Price;
     }
     return (
-      props.ProductDetail.Price - (props.ProductDetail.Price * props.ProductDetail.Disscount) / 100
+      props.productDetail.Price - (props.productDetail.Price * props.productDetail.Disscount) / 100
     );
-  };  */
+  };
 
   const [productDetail, setProductDetail] = useState({});
   console.log(productId);
@@ -53,72 +52,116 @@ export const ProductDetail = (props) => {
 
   return (
     <>
-      <br></br>
-      <br></br>
-      <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-      <div>
-        <Row>
-          <Col sm={5}>
-            <Row>
-              <Col>
-                {" "}
-                <Image src={productDetail?.ImageUrl}></Image>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                {" "}
-                <Link to={"/Cart"}></Link>
-                <Button>
-                  Add to Cart
-                </Button>
-              </Col>
-              <Col>
-                <Link to={"/ConfrimOrder"}>
-                  <Button> Buy Now</Button>
-                </Link>
-              </Col>
-              <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-            </Row>
-          </Col>
-          <Col sm={7}>
-            <Row>
-              <Col><h1><b>{productDetail.ModelName}</b></h1></Col>
-            </Row>            
-            <br></br>
-            <Row>
-              <Col><b>Price: </b>{productDetail.Price} with {productDetail.Disscount}% Discount</Col>
-            </Row>
-            <br></br>
-            <Row>
-              <Col><b>Description: </b>{productDetail.Description}</Col>
-            </Row><br></br><br></br><br></br>
-            
-            <Col sm={6}>
+      <Container>
+        <br></br>
+        <br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <div>
+          <Row>
+            <Col sm={5}>
               <Row>
                 <Col>
-                  <div className="image">
-                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png" />  
-                  </div>
-                  <div class="a-section a-spacing-none icon-content"> 7 Days Replacement </div>
-                </Col>
-                <Col>
-                  <div className="image">
-                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png" />  
-                  </div>
-                  <div class="a-section a-spacing-none icon-content"> 1 Year Warranty </div>
-                </Col>
-                <Col>
-                  <div className="image">
-                  <img src = "https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/No_contact_delivery_final._CB432269791_.png" />  
-                  </div>
-                  <div class="a-section a-spacing-none icon-content"> Product Delivered</div>
+                  {" "}
+                  <Image
+                    width={360}
+                    height={360}
+                    src={productDetail?.ImageUrl}></Image>
                 </Col>
               </Row>
+
+              <Row>
+                <Col>
+                  <Button
+                    onClick={() => {
+                      props.onAddCart(props.productDetail);
+                    }}
+                    variant="outline-primary"
+                    size="md"
+                  >
+                    Add to Cart
+                  </Button>
+                </Col>
+                <Col>
+                  <Link to={"/Cart"}>
+                    <Button> Buy Now</Button>
+                  </Link>
+                </Col>
+                <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+              </Row>
             </Col>
-          </Col>
-        </Row>
-      </div> 
+
+
+
+            <Col sm={7}>
+              <table className="table-center table-light table-hover m-0">
+                <tr>
+                  <th>
+                    
+                      <h1><b>{productDetail.ModelName}</b></h1>
+                  
+                    <br></br>
+                  </th>
+                </tr>
+                <tbody>
+
+
+                  {/* <Row>
+                  <Col>
+                  {props.productDetail.Disscount>0?<span style={{textDecoration:'line-through'}} className="OrignalPrice"> <div>{props.productDetail.Price}</div></span>:null}
+                  {GetdiscountedPrice()}
+                  </Col>
+                  </Row>
+                  */}
+
+                  <tr>
+                  <td>
+                  <b>Price: </b>
+                  </td>
+                  <td>{productDetail.Price} with {productDetail.Disscount}% Discount</td>
+                  </tr>
+                  <br></br>
+                  
+                    <tr>
+                    <td>
+                    <b>About this Item<br></br>
+                    </b>{productDetail.Description}
+                    </td>
+                    </tr>
+                 <br></br><br></br><br></br>
+
+                  <Row>
+                    <Col>
+                      <div className="image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-cod._CB485937110_.png" />
+                      </div>
+                      <div class="a-section a-spacing-none icon-content"> Pay on Delivery </div>
+                    </Col>
+
+                    <Col>
+                      <div className="image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png" />
+                      </div>
+                      <div class="a-section a-spacing-none icon-content"> 7 Days Replacement </div>
+                    </Col>
+                    <Col>
+                      <div className="image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png" />
+                      </div>
+                      <div class="a-section a-spacing-none icon-content"> 1 Year Warranty </div>
+                    </Col>
+                    <Col>
+                      <div className="image">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/No_contact_delivery_final._CB432269791_.png" />
+                      </div>
+                      <div class="a-section a-spacing-none icon-content"> Product Delivered</div>
+                    </Col>
+                  </Row>
+                </tbody>
+              </table>
+            </Col>
+          </Row>
+        </div>
+      </Container>
     </>
   );
 };

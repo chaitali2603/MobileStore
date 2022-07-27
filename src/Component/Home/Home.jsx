@@ -156,6 +156,17 @@ function Home() {
               </div>
             </Col>
           </Row>
+
+          <Row>
+            {Products.map((ProductDetail1, i) => {
+              return (
+                <Col key={i} sm={3}>
+                  <productDetail onAddCart={Onaddcart} productDetail={ProductDetail1}></productDetail>
+                </Col>
+              );
+            })}
+          </Row>{" "}
+
           <Row>
             {Products.map((Product1, i) => {
               return (

@@ -35,7 +35,7 @@ export const ConfrimOrder = (props) => {
     setShowError(false);
     if (!UserOrder.Address) {
       console.log("Check Box is not selected");
-      setErroeMassage("Please Click on the CheckBox ");
+      setErroeMassage("Please Select Address ");
       setShowError(true);
       return false;
     }
@@ -67,7 +67,7 @@ export const ConfrimOrder = (props) => {
       .map((datum) => datum.Qty * datum.Price)
       .reduce((a, b) => a + b);
   };
-  const onclickRadioBtn = () => {};
+  const onclickRadioBtn = () => { };
 
   const onSubmitOrder = () => {
     if (!validateConfrimOrder()) {
@@ -99,46 +99,59 @@ export const ConfrimOrder = (props) => {
 
   return (
     <>
-    <br></br>
-    <br></br>
-    <br></br>
-    
-      <div>
-        <Container>
-          <Table striped bordered hover>
-            <thead>
-              <tr></tr>
-            </thead>
-            <tbody>
-              {cartProducts.map((item, index) => {
-                return (
-                  <tr key={index} className="align-middle">
-                    <td>
-                      <img
-                        src={item.ImageUrl}
-                        className="img-cart"
-                        alt={item.ModelName}
-                      />
-                    </td>
-                    <td>{item.ModelName}</td>
-                    <td>{item.Price}</td>
-                    <td>Quantity: {item.Qty} </td>
-                    <td>{item.Qty * item.Price} </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
+      <br></br>
+      <br></br>
+      <br></br>
+<Container>
+     
+              <Row>
+                <Col sm={12}>
+                  {" "}
+                  <table className="table table-light table-hover m-0">
+                    <tr>
+                      <th> Image</th>
+                      <th> Model</th>
+                      <th> Price</th>
+                      <th> Quantity</th>
+                      <th> Total</th>
+                    </tr>
+                    <tbody>
+                      {cartProducts.map((item, index) => {
+                        return (
+
+                          <tr key={index} className="align-middle">
+
+                            <td>
+                              <img
+                                width={220}
+                                height={220}
+                                src={item.ImageUrl}
+                                className="img-cart"
+                                alt={item.ModelName}
+                              />
+                            </td>
+                            <td>{item.ModelName} </td>
+                            <td>{item.Price} Rs. </td>
+                            <td>{item.Qty} </td>
+                            <td>{item.Qty * item.Price} Rs. </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </Col>
+              </Row>
+            <br></br>
 
           <div>
             <h3>Select Address</h3>
           </div>
           <br></br>
           {showError ? <Alert variant={"danger"}>{ErroeMassage}</Alert> : null}
-              
+
           <div className="cnfrimOver">
             {allAddress.map((address, index) => {
-              
+
               return (
                 <Row>
                   <Col></Col>
@@ -149,7 +162,7 @@ export const ConfrimOrder = (props) => {
                         <Row>
                           <Col sm={2}>
                             {" "}
-                            
+
                             <div className="cnfrionbtn">
                               <Form.Check
                                 type="radio"
@@ -200,9 +213,7 @@ export const ConfrimOrder = (props) => {
           </div>
           <br></br>
         </Container>
-      </div>
       <br></br>
-
     </>
   );
 };
